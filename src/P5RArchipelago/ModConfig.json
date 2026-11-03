@@ -1,0 +1,31 @@
+{
+  "ModId": "luigi.p5r.archipelago",
+  "ModName": "Persona 5 AP",
+  "ModAuthor": "Luigi",
+  "ModVersion": "0.13.1",
+  "ModDescription": "Persona 5 Royal Archipelago checks, Palace goals, and a hotkey-accessible hub.",
+  "ModDll": "P5RArchipelago.dll",
+  "ModIcon": "",
+  "ModR2RManagedDll32": "",
+  "ModR2RManagedDll64": "",
+  "ModNativeDll32": "",
+  "ModNativeDll64": "",
+  "Tags": ["Archipelago", "Testing"],
+  "CanUnload": false,
+  "HasExports": false,
+  "IsLibrary": false,
+  "ReleaseMetadataFileName": "P5RArchipelago.ReleaseMetadata.json",
+  "PluginData": {},
+  "IsUniversalMod": false,
+  "ModDependencies": [
+    "crifs.v2.hook",
+    "reloaded.sharedlib.hooks",
+    "reloaded.universal.fileemulationframework.bf",
+    "p5rpc.modloader"
+  ],
+  "OptionalDependencies": [],
+  "SupportedAppId": [
+    "p5r.exe"
+  ],
+  "ProjectUrl": ""
+}

@@ -1,0 +1,1120 @@
+{
+  "catalog_version": 2,
+  "notes": "40 vanilla TV-shopping bundles plus curated chest consumables, clinic medicine, weapons, guns, and armor. Item IDs are P5R inventory IDs.",
+  "bundles": [
+    {
+      "name": "Spring Awake Set",
+      "item_id": 1347559424,
+      "month": 4,
+      "day": 24,
+      "option": 1,
+      "contents": [
+        {
+          "item_id": 8267,
+          "count": 1
+        },
+        {
+          "item_id": 12708,
+          "count": 10
+        },
+        {
+          "item_id": 12711,
+          "count": 10
+        }
+      ]
+    },
+    {
+      "name": "Share of Spring Set",
+      "item_id": 1347559425,
+      "month": 4,
+      "day": 24,
+      "option": 2,
+      "contents": [
+        {
+          "item_id": 12826,
+          "count": 5
+        },
+        {
+          "item_id": 12607,
+          "count": 1
+        },
+        {
+          "item_id": 12612,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Military Ration Set",
+      "item_id": 1347559426,
+      "month": 5,
+      "day": 1,
+      "option": 1,
+      "contents": [
+        {
+          "item_id": 12506,
+          "count": 3
+        },
+        {
+          "item_id": 12504,
+          "count": 2
+        },
+        {
+          "item_id": 12714,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Muscle Workout Set",
+      "item_id": 1347559427,
+      "month": 5,
+      "day": 1,
+      "option": 2,
+      "contents": [
+        {
+          "item_id": 12537,
+          "count": 2
+        },
+        {
+          "item_id": 12538,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Relaxation Set",
+      "item_id": 1347559428,
+      "month": 5,
+      "day": 8,
+      "option": 1,
+      "contents": [
+        {
+          "item_id": 12356,
+          "count": 1
+        },
+        {
+          "item_id": 12307,
+          "count": 3
+        },
+        {
+          "item_id": 12308,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "name": "Bio Nutrients Set",
+      "item_id": 1347559429,
+      "month": 5,
+      "day": 8,
+      "option": 2,
+      "contents": [
+        {
+          "item_id": 12361,
+          "count": 1
+        },
+        {
+          "item_id": 12359,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "name": "Allergy Relief Pack",
+      "item_id": 1347559430,
+      "month": 5,
+      "day": 15,
+      "option": 1,
+      "contents": [
+        {
+          "item_id": 8242,
+          "count": 2
+        },
+        {
+          "item_id": 12708,
+          "count": 20
+        }
+      ]
+    },
+    {
+      "name": "Cosmetic Cure Gift",
+      "item_id": 1347559431,
+      "month": 5,
+      "day": 15,
+      "option": 2,
+      "contents": [
+        {
+          "item_id": 12932,
+          "count": 1
+        },
+        {
+          "item_id": 12831,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Muscle Plus Set",
+      "item_id": 1347559432,
+      "month": 5,
+      "day": 22,
+      "option": 1,
+      "contents": [
+        {
+          "item_id": 12822,
+          "count": 2
+        },
+        {
+          "item_id": 12823,
+          "count": 2
+        },
+        {
+          "item_id": 12824,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Outdoors Kit",
+      "item_id": 1347559433,
+      "month": 5,
+      "day": 22,
+      "option": 2,
+      "contents": [
+        {
+          "item_id": 12327,
+          "count": 3
+        },
+        {
+          "item_id": 12329,
+          "count": 3
+        },
+        {
+          "item_id": 12333,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "name": "Japanese Gift Set",
+      "item_id": 1347559434,
+      "month": 5,
+      "day": 29,
+      "option": 1,
+      "contents": [
+        {
+          "item_id": 12383,
+          "count": 1
+        },
+        {
+          "item_id": 12933,
+          "count": 1
+        },
+        {
+          "item_id": 12472,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Folding Screen Set",
+      "item_id": 1347559435,
+      "month": 5,
+      "day": 29,
+      "option": 2,
+      "contents": [
+        {
+          "item_id": 8345,
+          "count": 1
+        },
+        {
+          "item_id": 8348,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Supportive Gift Set",
+      "item_id": 1347559436,
+      "month": 6,
+      "day": 19,
+      "option": 1,
+      "contents": [
+        {
+          "item_id": 12931,
+          "count": 1
+        },
+        {
+          "item_id": 12614,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Busy Revival Set",
+      "item_id": 1347559437,
+      "month": 6,
+      "day": 19,
+      "option": 2,
+      "contents": [
+        {
+          "item_id": 12349,
+          "count": 3
+        },
+        {
+          "item_id": 12291,
+          "count": 10
+        }
+      ]
+    },
+    {
+      "name": "Dark Power Set",
+      "item_id": 1347559438,
+      "month": 6,
+      "day": 26,
+      "option": 1,
+      "contents": [
+        {
+          "item_id": 8388,
+          "count": 2
+        },
+        {
+          "item_id": 4302,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cursed Tools Set",
+      "item_id": 1347559439,
+      "month": 6,
+      "day": 26,
+      "option": 2,
+      "contents": [
+        {
+          "item_id": 12348,
+          "count": 3
+        },
+        {
+          "item_id": 12336,
+          "count": 10
+        }
+      ]
+    },
+    {
+      "name": "Body Building Set",
+      "item_id": 1347559440,
+      "month": 7,
+      "day": 3,
+      "option": 1,
+      "contents": [
+        {
+          "item_id": 12800,
+          "count": 1
+        },
+        {
+          "item_id": 12538,
+          "count": 3
+        },
+        {
+          "item_id": 12537,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "name": "Calm Mind Set",
+      "item_id": 1347559441,
+      "month": 7,
+      "day": 3,
+      "option": 2,
+      "contents": [
+        {
+          "item_id": 12811,
+          "count": 1
+        },
+        {
+          "item_id": 12813,
+          "count": 1
+        },
+        {
+          "item_id": 12815,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Phantom Thief Set",
+      "item_id": 1347559442,
+      "month": 8,
+      "day": 7,
+      "option": 1,
+      "contents": [
+        {
+          "item_id": 12624,
+          "count": 5
+        },
+        {
+          "item_id": 12311,
+          "count": 3
+        },
+        {
+          "item_id": 12391,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "name": "Heroic Set",
+      "item_id": 1347559443,
+      "month": 8,
+      "day": 7,
+      "option": 2,
+      "contents": [
+        {
+          "item_id": 12331,
+          "count": 4
+        },
+        {
+          "item_id": 12342,
+          "count": 4
+        },
+        {
+          "item_id": 12344,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "name": "Drink Set",
+      "item_id": 1347559444,
+      "month": 8,
+      "day": 14,
+      "option": 1,
+      "contents": [
+        {
+          "item_id": 12520,
+          "count": 20
+        },
+        {
+          "item_id": 12724,
+          "count": 20
+        }
+      ]
+    },
+    {
+      "name": "Floral Gift Set",
+      "item_id": 1347559445,
+      "month": 8,
+      "day": 14,
+      "option": 2,
+      "contents": [
+        {
+          "item_id": 12370,
+          "count": 1
+        },
+        {
+          "item_id": 12380,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Phantom Thief Set 2",
+      "item_id": 1347559446,
+      "month": 9,
+      "day": 25,
+      "option": 1,
+      "contents": [
+        {
+          "item_id": 12394,
+          "count": 3
+        },
+        {
+          "item_id": 12391,
+          "count": 5
+        },
+        {
+          "item_id": 12624,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "name": "Thief Fun Set",
+      "item_id": 1347559447,
+      "month": 9,
+      "day": 25,
+      "option": 2,
+      "contents": [
+        {
+          "item_id": 12609,
+          "count": 5
+        },
+        {
+          "item_id": 12535,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "name": "Pumpkin Ghost Set",
+      "item_id": 1347559448,
+      "month": 10,
+      "day": 2,
+      "option": 1,
+      "contents": [
+        {
+          "item_id": 8219,
+          "count": 1
+        },
+        {
+          "item_id": 12926,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "name": "Ghost Repellent Set",
+      "item_id": 1347559449,
+      "month": 10,
+      "day": 2,
+      "option": 2,
+      "contents": [
+        {
+          "item_id": 12478,
+          "count": 5
+        },
+        {
+          "item_id": 12479,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "name": "Sturdy Ointment Set",
+      "item_id": 1347559450,
+      "month": 11,
+      "day": 6,
+      "option": 1,
+      "contents": [
+        {
+          "item_id": 12320,
+          "count": 3
+        },
+        {
+          "item_id": 12319,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "name": "Inner Muscle Set",
+      "item_id": 1347559451,
+      "month": 11,
+      "day": 6,
+      "option": 2,
+      "contents": [
+        {
+          "item_id": 12875,
+          "count": 1
+        },
+        {
+          "item_id": 12935,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "name": "Instant Spray Set",
+      "item_id": 1347559452,
+      "month": 11,
+      "day": 13,
+      "option": 1,
+      "contents": [
+        {
+          "item_id": 12940,
+          "count": 1
+        },
+        {
+          "item_id": 12938,
+          "count": 5
+        },
+        {
+          "item_id": 12939,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "name": "Meditative Set",
+      "item_id": 1347559453,
+      "month": 11,
+      "day": 13,
+      "option": 2,
+      "contents": [
+        {
+          "item_id": 12817,
+          "count": 1
+        },
+        {
+          "item_id": 12818,
+          "count": 1
+        },
+        {
+          "item_id": 12820,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Yaki-Imo Set",
+      "item_id": 1347559454,
+      "month": 11,
+      "day": 27,
+      "option": 1,
+      "contents": [
+        {
+          "item_id": 12782,
+          "count": 3
+        },
+        {
+          "item_id": 12781,
+          "count": 10
+        }
+      ]
+    },
+    {
+      "name": "Special Sweets Set",
+      "item_id": 1347559455,
+      "month": 11,
+      "day": 27,
+      "option": 2,
+      "contents": [
+        {
+          "item_id": 12777,
+          "count": 3
+        },
+        {
+          "item_id": 12779,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "name": "Super Detox Set",
+      "item_id": 1347559456,
+      "month": 12,
+      "day": 11,
+      "option": 1,
+      "contents": [
+        {
+          "item_id": 12536,
+          "count": 3
+        },
+        {
+          "item_id": 12356,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "name": "Fancy Magatama Set",
+      "item_id": 1347559457,
+      "month": 12,
+      "day": 11,
+      "option": 2,
+      "contents": [
+        {
+          "item_id": 12337,
+          "count": 3
+        },
+        {
+          "item_id": 12339,
+          "count": 3
+        },
+        {
+          "item_id": 12338,
+          "count": 3
+        },
+        {
+          "item_id": 12340,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "name": "Lucky Worker Bag",
+      "item_id": 1347559458,
+      "month": 1,
+      "day": 15,
+      "option": 1,
+      "contents": [
+        {
+          "item_id": 8235,
+          "count": 1
+        },
+        {
+          "item_id": 12320,
+          "count": 3
+        },
+        {
+          "item_id": 12319,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "name": "Lucky Muscle Bag",
+      "item_id": 1347559459,
+      "month": 1,
+      "day": 15,
+      "option": 2,
+      "contents": [
+        {
+          "item_id": 12800,
+          "count": 3
+        },
+        {
+          "item_id": 12816,
+          "count": 3
+        },
+        {
+          "item_id": 12935,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "name": "Talisman Set",
+      "item_id": 1347559460,
+      "month": 1,
+      "day": 22,
+      "option": 1,
+      "contents": [
+        {
+          "item_id": 12321,
+          "count": 3
+        },
+        {
+          "item_id": 12322,
+          "count": 3
+        },
+        {
+          "item_id": 12323,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "name": "Sweet Delight Set",
+      "item_id": 1347559461,
+      "month": 1,
+      "day": 22,
+      "option": 2,
+      "contents": [
+        {
+          "item_id": 12914,
+          "count": 3
+        },
+        {
+          "item_id": 12722,
+          "count": 20
+        },
+        {
+          "item_id": 12720,
+          "count": 20
+        }
+      ]
+    },
+    {
+      "name": "Energetic Set",
+      "item_id": 1347559462,
+      "month": 1,
+      "day": 29,
+      "option": 1,
+      "contents": [
+        {
+          "item_id": 12875,
+          "count": 3
+        },
+        {
+          "item_id": 12822,
+          "count": 5
+        },
+        {
+          "item_id": 12823,
+          "count": 5
+        },
+        {
+          "item_id": 12824,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "name": "Delicious Revival Set",
+      "item_id": 1347559463,
+      "month": 1,
+      "day": 29,
+      "option": 2,
+      "contents": [
+        {
+          "item_id": 12913,
+          "count": 2
+        },
+        {
+          "item_id": 12777,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "name": "Lifestone Cache",
+      "item_id": 1347559680,
+      "category": "chest_consumable",
+      "contents": [
+        {
+          "item_id": 8197,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "name": "Soul Drop Cache",
+      "item_id": 1347559681,
+      "category": "chest_consumable",
+      "contents": [
+        {
+          "item_id": 8203,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "name": "Snuff Soul Cache",
+      "item_id": 1347559682,
+      "category": "chest_consumable",
+      "contents": [
+        {
+          "item_id": 8204,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Revival Bead Cache",
+      "item_id": 1347559683,
+      "category": "chest_consumable",
+      "contents": [
+        {
+          "item_id": 8207,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Balm of Life Cache",
+      "item_id": 1347559684,
+      "category": "chest_consumable",
+      "contents": [
+        {
+          "item_id": 8208,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Ailment Cleanup Kit",
+      "item_id": 1347559685,
+      "category": "chest_consumable",
+      "contents": [
+        {
+          "item_id": 8217,
+          "count": 2
+        },
+        {
+          "item_id": 8218,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Elemental Tool Kit",
+      "item_id": 1347559686,
+      "category": "chest_consumable",
+      "contents": [
+        {
+          "item_id": 8230,
+          "count": 2
+        },
+        {
+          "item_id": 8232,
+          "count": 2
+        },
+        {
+          "item_id": 8234,
+          "count": 2
+        },
+        {
+          "item_id": 8236,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Homunculus Charm",
+      "item_id": 1347559687,
+      "category": "chest_consumable",
+      "contents": [
+        {
+          "item_id": 8256,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Recov-R 50 mg Pack",
+      "item_id": 1347559688,
+      "category": "clinic_medicine",
+      "contents": [
+        {
+          "item_id": 8194,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "name": "Recov-R 100 mg Pack",
+      "item_id": 1347559689,
+      "category": "clinic_medicine",
+      "contents": [
+        {
+          "item_id": 8195,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "name": "Takemedic Pack",
+      "item_id": 1347559690,
+      "category": "clinic_medicine",
+      "contents": [
+        {
+          "item_id": 8196,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Revivadrin Pack",
+      "item_id": 1347559691,
+      "category": "clinic_medicine",
+      "contents": [
+        {
+          "item_id": 8253,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Medicine Pack",
+      "item_id": 1347559692,
+      "category": "clinic_medicine",
+      "contents": [
+        {
+          "item_id": 8254,
+          "count": 3
+        }
+      ]
+    },
+    {
+      "name": "Life Ointment",
+      "item_id": 1347559693,
+      "category": "clinic_medicine",
+      "contents": [
+        {
+          "item_id": 8255,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Reviv-All",
+      "item_id": 1347559694,
+      "category": "clinic_medicine",
+      "contents": [
+        {
+          "item_id": 8258,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Kukri",
+      "item_id": 1347559695,
+      "category": "melee_weapon",
+      "contents": [
+        {
+          "item_id": 4099,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Athame",
+      "item_id": 1347559696,
+      "category": "melee_weapon",
+      "contents": [
+        {
+          "item_id": 4102,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Hammer",
+      "item_id": 1347559697,
+      "category": "melee_weapon",
+      "contents": [
+        {
+          "item_id": 4138,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Talwar",
+      "item_id": 1347559698,
+      "category": "melee_weapon",
+      "contents": [
+        {
+          "item_id": 4174,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Warrior Whip",
+      "item_id": 1347559699,
+      "category": "melee_weapon",
+      "contents": [
+        {
+          "item_id": 4208,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Gunto",
+      "item_id": 1347559700,
+      "category": "melee_weapon",
+      "contents": [
+        {
+          "item_id": 4239,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Metal Duster",
+      "item_id": 1347559701,
+      "category": "melee_weapon",
+      "contents": [
+        {
+          "item_id": 4273,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Governance",
+      "item_id": 1347559702,
+      "category": "ranged_weapon",
+      "contents": [
+        {
+          "item_id": 28684,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Granelli M3",
+      "item_id": 1347559703,
+      "category": "ranged_weapon",
+      "contents": [
+        {
+          "item_id": 28701,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Shrike",
+      "item_id": 1347559704,
+      "category": "ranged_weapon",
+      "contents": [
+        {
+          "item_id": 28735,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Trooper",
+      "item_id": 1347559705,
+      "category": "ranged_weapon",
+      "contents": [
+        {
+          "item_id": 28766,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Survival Vest",
+      "item_id": 1347559706,
+      "category": "armor",
+      "contents": [
+        {
+          "item_id": 20520,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Lady's Dress",
+      "item_id": 1347559707,
+      "category": "armor",
+      "contents": [
+        {
+          "item_id": 20521,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Zen Outfit",
+      "item_id": 1347559708,
+      "category": "armor",
+      "contents": [
+        {
+          "item_id": 20522,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Cone Collar",
+      "item_id": 1347559709,
+      "category": "armor",
+      "contents": [
+        {
+          "item_id": 20523,
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

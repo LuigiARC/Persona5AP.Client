@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType><TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable><LangVersion>12</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../../src/P5RArchipelago/StateStore.cs" Link="StateStore.cs" />
+    <Compile Include="../../../src/P5RArchipelago/ClientState.cs" Link="ClientState.cs" />
+    <Compile Include="../../../src/P5RArchipelago/ChestCatalog.cs" Link="ChestCatalog.cs" />
+    <EmbeddedResource Include="../../../data/chests.json" LogicalName="P5RArchipelago.chests.json" />
+    <Compile Include="../../../src/P5RArchipelago/Native/DeathLinkDamageReceiver.cs" Link="DeathLinkDamageReceiver.cs" />
+  </ItemGroup>
+</Project>

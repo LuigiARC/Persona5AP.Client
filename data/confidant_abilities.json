@@ -1,0 +1,1654 @@
+{
+  "catalog_version": 1,
+  "notes": "Generated from en.cpk INIT/CMM.BIN cmmFunctionTable.ctd and cmmFunctionName.ctd.",
+  "locations": [
+    {
+      "name": "Chariot Rank 2 - Punk Talk",
+      "arcana": "Chariot",
+      "rank": 2,
+      "feature_id": 75,
+      "trigger_cmm_ids": [
+        8
+      ],
+      "location_id": 1347551744
+    },
+    {
+      "name": "Chariot Rank 3 - Follow Up",
+      "arcana": "Chariot",
+      "rank": 3,
+      "feature_id": 73,
+      "trigger_cmm_ids": [
+        8
+      ],
+      "location_id": 1347551745
+    },
+    {
+      "name": "Chariot Rank 4 - Stealth Dash",
+      "arcana": "Chariot",
+      "rank": 4,
+      "feature_id": 283,
+      "trigger_cmm_ids": [
+        8
+      ],
+      "location_id": 1347551746
+    },
+    {
+      "name": "Chariot Rank 6 - Harisen Recovery",
+      "arcana": "Chariot",
+      "rank": 6,
+      "feature_id": 74,
+      "trigger_cmm_ids": [
+        8
+      ],
+      "location_id": 1347551747
+    },
+    {
+      "name": "Chariot Rank 7 - Insta-kill",
+      "arcana": "Chariot",
+      "rank": 7,
+      "feature_id": 80,
+      "trigger_cmm_ids": [
+        8
+      ],
+      "location_id": 1347551748
+    },
+    {
+      "name": "Chariot Rank 8 - Endure",
+      "arcana": "Chariot",
+      "rank": 8,
+      "feature_id": 77,
+      "trigger_cmm_ids": [
+        8
+      ],
+      "location_id": 1347551749
+    },
+    {
+      "name": "Chariot Rank 9 - Protect",
+      "arcana": "Chariot",
+      "rank": 9,
+      "feature_id": 79,
+      "trigger_cmm_ids": [
+        8
+      ],
+      "location_id": 1347551750
+    },
+    {
+      "name": "Chariot Rank 10 - Second Awakening",
+      "arcana": "Chariot",
+      "rank": 10,
+      "feature_id": 237,
+      "trigger_cmm_ids": [
+        8
+      ],
+      "location_id": 1347551751
+    },
+    {
+      "name": "Chariot Rank 10 - Second Awakening R",
+      "arcana": "Chariot",
+      "rank": 10,
+      "feature_id": 249,
+      "trigger_cmm_ids": [
+        8
+      ],
+      "location_id": 1347551752
+    },
+    {
+      "name": "Councillor Rank 2 - Detox X",
+      "arcana": "Councillor",
+      "rank": 2,
+      "feature_id": 261,
+      "trigger_cmm_ids": [
+        35
+      ],
+      "location_id": 1347551753
+    },
+    {
+      "name": "Councillor Rank 3 - Flow",
+      "arcana": "Councillor",
+      "rank": 3,
+      "feature_id": 266,
+      "trigger_cmm_ids": [
+        35
+      ],
+      "location_id": 1347551754
+    },
+    {
+      "name": "Councillor Rank 5 - Mindfulness",
+      "arcana": "Councillor",
+      "rank": 5,
+      "feature_id": 263,
+      "trigger_cmm_ids": [
+        35
+      ],
+      "location_id": 1347551755
+    },
+    {
+      "name": "Councillor Rank 7 - Flow Boost",
+      "arcana": "Councillor",
+      "rank": 7,
+      "feature_id": 267,
+      "trigger_cmm_ids": [
+        35
+      ],
+      "location_id": 1347551756
+    },
+    {
+      "name": "Councillor Rank 9 - Detox DX",
+      "arcana": "Councillor",
+      "rank": 9,
+      "feature_id": 262,
+      "trigger_cmm_ids": [
+        35
+      ],
+      "location_id": 1347551757
+    },
+    {
+      "name": "Councillor Rank 10 - Wakefulness",
+      "arcana": "Councillor",
+      "rank": 10,
+      "feature_id": 264,
+      "trigger_cmm_ids": [
+        35
+      ],
+      "location_id": 1347551758
+    },
+    {
+      "name": "Death Rank 1 - Rejuvenation",
+      "arcana": "Death",
+      "rank": 1,
+      "feature_id": 131,
+      "trigger_cmm_ids": [
+        14,
+        28
+      ],
+      "location_id": 1347551759
+    },
+    {
+      "name": "Death Rank 3 - Sterilization",
+      "arcana": "Death",
+      "rank": 3,
+      "feature_id": 133,
+      "trigger_cmm_ids": [
+        14,
+        28
+      ],
+      "location_id": 1347551760
+    },
+    {
+      "name": "Death Rank 5 - Immunization",
+      "arcana": "Death",
+      "rank": 5,
+      "feature_id": 137,
+      "trigger_cmm_ids": [
+        14,
+        28
+      ],
+      "location_id": 1347551761
+    },
+    {
+      "name": "Death Rank 7 - Discount",
+      "arcana": "Death",
+      "rank": 7,
+      "feature_id": 135,
+      "trigger_cmm_ids": [
+        14,
+        28
+      ],
+      "location_id": 1347551762
+    },
+    {
+      "name": "Death Rank 10 - Resuscitation",
+      "arcana": "Death",
+      "rank": 10,
+      "feature_id": 139,
+      "trigger_cmm_ids": [
+        14,
+        28
+      ],
+      "location_id": 1347551763
+    },
+    {
+      "name": "Devil Rank 1 - Rumor-filled Scoop",
+      "arcana": "Devil",
+      "rank": 1,
+      "feature_id": 280,
+      "trigger_cmm_ids": [
+        16,
+        30
+      ],
+      "location_id": 1347551764
+    },
+    {
+      "name": "Devil Rank 3 - Shocking Scoop",
+      "arcana": "Devil",
+      "rank": 3,
+      "feature_id": 282,
+      "trigger_cmm_ids": [
+        16,
+        30
+      ],
+      "location_id": 1347551765
+    },
+    {
+      "name": "Devil Rank 5 - Unprecedented Scoop",
+      "arcana": "Devil",
+      "rank": 5,
+      "feature_id": 284,
+      "trigger_cmm_ids": [
+        16,
+        30
+      ],
+      "location_id": 1347551766
+    },
+    {
+      "name": "Devil Rank 7 - Outrageous Scoop",
+      "arcana": "Devil",
+      "rank": 7,
+      "feature_id": 286,
+      "trigger_cmm_ids": [
+        16,
+        30
+      ],
+      "location_id": 1347551767
+    },
+    {
+      "name": "Devil Rank 10 - Legendary Scoop",
+      "arcana": "Devil",
+      "rank": 10,
+      "feature_id": 289,
+      "trigger_cmm_ids": [
+        16,
+        30
+      ],
+      "location_id": 1347551768
+    },
+    {
+      "name": "Emperor Rank 1 - Card Duplication",
+      "arcana": "Emperor",
+      "rank": 1,
+      "feature_id": 41,
+      "trigger_cmm_ids": [
+        5
+      ],
+      "location_id": 1347551769
+    },
+    {
+      "name": "Emperor Rank 3 - Follow Up",
+      "arcana": "Emperor",
+      "rank": 3,
+      "feature_id": 42,
+      "trigger_cmm_ids": [
+        5
+      ],
+      "location_id": 1347551770
+    },
+    {
+      "name": "Emperor Rank 4 - Art Talk",
+      "arcana": "Emperor",
+      "rank": 4,
+      "feature_id": 43,
+      "trigger_cmm_ids": [
+        5
+      ],
+      "location_id": 1347551771
+    },
+    {
+      "name": "Emperor Rank 5 - Card Creation",
+      "arcana": "Emperor",
+      "rank": 5,
+      "feature_id": 274,
+      "trigger_cmm_ids": [
+        5
+      ],
+      "location_id": 1347551772
+    },
+    {
+      "name": "Emperor Rank 6 - Harisen Recovery",
+      "arcana": "Emperor",
+      "rank": 6,
+      "feature_id": 46,
+      "trigger_cmm_ids": [
+        5
+      ],
+      "location_id": 1347551773
+    },
+    {
+      "name": "Emperor Rank 7 - Live Painting",
+      "arcana": "Emperor",
+      "rank": 7,
+      "feature_id": 275,
+      "trigger_cmm_ids": [
+        5
+      ],
+      "location_id": 1347551774
+    },
+    {
+      "name": "Emperor Rank 8 - Endure",
+      "arcana": "Emperor",
+      "rank": 8,
+      "feature_id": 47,
+      "trigger_cmm_ids": [
+        5
+      ],
+      "location_id": 1347551775
+    },
+    {
+      "name": "Emperor Rank 9 - Protect",
+      "arcana": "Emperor",
+      "rank": 9,
+      "feature_id": 49,
+      "trigger_cmm_ids": [
+        5
+      ],
+      "location_id": 1347551776
+    },
+    {
+      "name": "Emperor Rank 10 - Second Awakening",
+      "arcana": "Emperor",
+      "rank": 10,
+      "feature_id": 234,
+      "trigger_cmm_ids": [
+        5
+      ],
+      "location_id": 1347551777
+    },
+    {
+      "name": "Emperor Rank 10 - Second Awakening R",
+      "arcana": "Emperor",
+      "rank": 10,
+      "feature_id": 245,
+      "trigger_cmm_ids": [
+        5
+      ],
+      "location_id": 1347551778
+    },
+    {
+      "name": "Empress Rank 1 - Cultivation",
+      "arcana": "Empress",
+      "rank": 1,
+      "feature_id": 221,
+      "trigger_cmm_ids": [
+        4,
+        24
+      ],
+      "location_id": 1347551779
+    },
+    {
+      "name": "Empress Rank 3 - Follow Up",
+      "arcana": "Empress",
+      "rank": 3,
+      "feature_id": 32,
+      "trigger_cmm_ids": [
+        4,
+        24
+      ],
+      "location_id": 1347551780
+    },
+    {
+      "name": "Empress Rank 4 - Celeb Talk",
+      "arcana": "Empress",
+      "rank": 4,
+      "feature_id": 33,
+      "trigger_cmm_ids": [
+        4,
+        24
+      ],
+      "location_id": 1347551781
+    },
+    {
+      "name": "Empress Rank 5 - Bumper Crop",
+      "arcana": "Empress",
+      "rank": 5,
+      "feature_id": 34,
+      "trigger_cmm_ids": [
+        4,
+        24
+      ],
+      "location_id": 1347551782
+    },
+    {
+      "name": "Empress Rank 6 - Harisen Recovery",
+      "arcana": "Empress",
+      "rank": 6,
+      "feature_id": 31,
+      "trigger_cmm_ids": [
+        4,
+        24
+      ],
+      "location_id": 1347551783
+    },
+    {
+      "name": "Empress Rank 7 - Soil Improvement",
+      "arcana": "Empress",
+      "rank": 7,
+      "feature_id": 37,
+      "trigger_cmm_ids": [
+        4,
+        24
+      ],
+      "location_id": 1347551784
+    },
+    {
+      "name": "Empress Rank 8 - Endure",
+      "arcana": "Empress",
+      "rank": 8,
+      "feature_id": 38,
+      "trigger_cmm_ids": [
+        4,
+        24
+      ],
+      "location_id": 1347551785
+    },
+    {
+      "name": "Empress Rank 9 - Protect",
+      "arcana": "Empress",
+      "rank": 9,
+      "feature_id": 39,
+      "trigger_cmm_ids": [
+        4,
+        24
+      ],
+      "location_id": 1347551786
+    },
+    {
+      "name": "Empress Rank 10 - Second Awakening",
+      "arcana": "Empress",
+      "rank": 10,
+      "feature_id": 233,
+      "trigger_cmm_ids": [
+        4,
+        24
+      ],
+      "location_id": 1347551787
+    },
+    {
+      "name": "Empress Rank 10 - Second Awakening R",
+      "arcana": "Empress",
+      "rank": 10,
+      "feature_id": 244,
+      "trigger_cmm_ids": [
+        4,
+        24
+      ],
+      "location_id": 1347551788
+    },
+    {
+      "name": "Faith Rank 2 - Tumbling",
+      "arcana": "Faith",
+      "rank": 2,
+      "feature_id": 250,
+      "trigger_cmm_ids": [
+        33,
+        34,
+        36,
+        37
+      ],
+      "location_id": 1347551789
+    },
+    {
+      "name": "Faith Rank 4 - Chans Hook",
+      "arcana": "Faith",
+      "rank": 4,
+      "feature_id": 254,
+      "trigger_cmm_ids": [
+        33,
+        34,
+        36,
+        37
+      ],
+      "location_id": 1347551790
+    },
+    {
+      "name": "Faith Rank 6 - Follow Up",
+      "arcana": "Faith",
+      "rank": 6,
+      "feature_id": 252,
+      "trigger_cmm_ids": [
+        36,
+        37
+      ],
+      "location_id": 1347551791
+    },
+    {
+      "name": "Faith Rank 6 - Fitness Talk",
+      "arcana": "Faith",
+      "rank": 6,
+      "feature_id": 253,
+      "trigger_cmm_ids": [
+        36,
+        37
+      ],
+      "location_id": 1347551792
+    },
+    {
+      "name": "Faith Rank 7 - Harisen Recovery",
+      "arcana": "Faith",
+      "rank": 7,
+      "feature_id": 255,
+      "trigger_cmm_ids": [
+        36,
+        37
+      ],
+      "location_id": 1347551793
+    },
+    {
+      "name": "Faith Rank 8 - Endure",
+      "arcana": "Faith",
+      "rank": 8,
+      "feature_id": 257,
+      "trigger_cmm_ids": [
+        36,
+        37
+      ],
+      "location_id": 1347551794
+    },
+    {
+      "name": "Faith Rank 9 - Protect",
+      "arcana": "Faith",
+      "rank": 9,
+      "feature_id": 258,
+      "trigger_cmm_ids": [
+        36,
+        37
+      ],
+      "location_id": 1347551795
+    },
+    {
+      "name": "Faith Rank 10 - Second Awakening",
+      "arcana": "Faith",
+      "rank": 10,
+      "feature_id": 259,
+      "trigger_cmm_ids": [
+        36,
+        37
+      ],
+      "location_id": 1347551796
+    },
+    {
+      "name": "Faith Rank 10 - Second Awakening R",
+      "arcana": "Faith",
+      "rank": 10,
+      "feature_id": 268,
+      "trigger_cmm_ids": [
+        36,
+        37
+      ],
+      "location_id": 1347551797
+    },
+    {
+      "name": "Fool Rank 1 - Wild Talk",
+      "arcana": "Fool",
+      "rank": 1,
+      "feature_id": 1,
+      "trigger_cmm_ids": [
+        1
+      ],
+      "location_id": 1347551798
+    },
+    {
+      "name": "Fool Rank 1 - Arcana Burst",
+      "arcana": "Fool",
+      "rank": 1,
+      "feature_id": 3,
+      "trigger_cmm_ids": [
+        1
+      ],
+      "location_id": 1347551799
+    },
+    {
+      "name": "Fool Rank 2 - Third Eye",
+      "arcana": "Fool",
+      "rank": 2,
+      "feature_id": 2,
+      "trigger_cmm_ids": [
+        1
+      ],
+      "location_id": 1347551800
+    },
+    {
+      "name": "Fool Rank 3 - Power Stock",
+      "arcana": "Fool",
+      "rank": 3,
+      "feature_id": 4,
+      "trigger_cmm_ids": [
+        1
+      ],
+      "location_id": 1347551801
+    },
+    {
+      "name": "Fool Rank 5 - Super Stock",
+      "arcana": "Fool",
+      "rank": 5,
+      "feature_id": 5,
+      "trigger_cmm_ids": [
+        1
+      ],
+      "location_id": 1347551802
+    },
+    {
+      "name": "Fool Rank 6 - High Arcana Burst",
+      "arcana": "Fool",
+      "rank": 6,
+      "feature_id": 6,
+      "trigger_cmm_ids": [
+        1
+      ],
+      "location_id": 1347551803
+    },
+    {
+      "name": "Fool Rank 8 - Ultra Stock",
+      "arcana": "Fool",
+      "rank": 8,
+      "feature_id": 8,
+      "trigger_cmm_ids": [
+        1
+      ],
+      "location_id": 1347551804
+    },
+    {
+      "name": "Fool Rank 10 - Max Arcana Burst",
+      "arcana": "Fool",
+      "rank": 10,
+      "feature_id": 10,
+      "trigger_cmm_ids": [
+        1
+      ],
+      "location_id": 1347551805
+    },
+    {
+      "name": "Fortune Rank 1 - Luck Reading",
+      "arcana": "Fortune",
+      "rank": 1,
+      "feature_id": 105,
+      "trigger_cmm_ids": [
+        11,
+        27
+      ],
+      "location_id": 1347551806
+    },
+    {
+      "name": "Fortune Rank 3 - Money Reading",
+      "arcana": "Fortune",
+      "rank": 3,
+      "feature_id": 106,
+      "trigger_cmm_ids": [
+        11,
+        27
+      ],
+      "location_id": 1347551807
+    },
+    {
+      "name": "Fortune Rank 5 - Affinity Reading",
+      "arcana": "Fortune",
+      "rank": 5,
+      "feature_id": 108,
+      "trigger_cmm_ids": [
+        11,
+        27
+      ],
+      "location_id": 1347551808
+    },
+    {
+      "name": "Fortune Rank 7 - Special Fate Reading",
+      "arcana": "Fortune",
+      "rank": 7,
+      "feature_id": 110,
+      "trigger_cmm_ids": [
+        11,
+        27
+      ],
+      "location_id": 1347551809
+    },
+    {
+      "name": "Fortune Rank 8 - Celestial Reading",
+      "arcana": "Fortune",
+      "rank": 8,
+      "feature_id": 271,
+      "trigger_cmm_ids": [
+        11,
+        27
+      ],
+      "location_id": 1347551810
+    },
+    {
+      "name": "Fortune Rank 10 - Special Bond Reading",
+      "arcana": "Fortune",
+      "rank": 10,
+      "feature_id": 285,
+      "trigger_cmm_ids": [
+        11,
+        27
+      ],
+      "location_id": 1347551811
+    },
+    {
+      "name": "Hanged Man Rank 1 - Starter Customization",
+      "arcana": "Hanged Man",
+      "rank": 1,
+      "feature_id": 276,
+      "trigger_cmm_ids": [
+        13
+      ],
+      "location_id": 1347551812
+    },
+    {
+      "name": "Hanged Man Rank 3 - Camo Customization",
+      "arcana": "Hanged Man",
+      "rank": 3,
+      "feature_id": 277,
+      "trigger_cmm_ids": [
+        13
+      ],
+      "location_id": 1347551813
+    },
+    {
+      "name": "Hanged Man Rank 5 - Discount",
+      "arcana": "Hanged Man",
+      "rank": 5,
+      "feature_id": 125,
+      "trigger_cmm_ids": [
+        13
+      ],
+      "location_id": 1347551814
+    },
+    {
+      "name": "Hanged Man Rank 7 - Expert Customization",
+      "arcana": "Hanged Man",
+      "rank": 7,
+      "feature_id": 278,
+      "trigger_cmm_ids": [
+        13
+      ],
+      "location_id": 1347551815
+    },
+    {
+      "name": "Hanged Man Rank 10 - On The House",
+      "arcana": "Hanged Man",
+      "rank": 10,
+      "feature_id": 279,
+      "trigger_cmm_ids": [
+        13
+      ],
+      "location_id": 1347551816
+    },
+    {
+      "name": "Hermit Rank 1 - Moral Support",
+      "arcana": "Hermit",
+      "rank": 1,
+      "feature_id": 91,
+      "trigger_cmm_ids": [
+        10,
+        26
+      ],
+      "location_id": 1347551817
+    },
+    {
+      "name": "Hermit Rank 2 - Mementos Scan",
+      "arcana": "Hermit",
+      "rank": 2,
+      "feature_id": 92,
+      "trigger_cmm_ids": [
+        10,
+        26
+      ],
+      "location_id": 1347551818
+    },
+    {
+      "name": "Hermit Rank 4 - Position Hack",
+      "arcana": "Hermit",
+      "rank": 4,
+      "feature_id": 94,
+      "trigger_cmm_ids": [
+        10,
+        26
+      ],
+      "location_id": 1347551819
+    },
+    {
+      "name": "Hermit Rank 6 - Active Support",
+      "arcana": "Hermit",
+      "rank": 6,
+      "feature_id": 96,
+      "trigger_cmm_ids": [
+        10,
+        26
+      ],
+      "location_id": 1347551820
+    },
+    {
+      "name": "Hermit Rank 7 - Treasure Reboot",
+      "arcana": "Hermit",
+      "rank": 7,
+      "feature_id": 97,
+      "trigger_cmm_ids": [
+        10,
+        26
+      ],
+      "location_id": 1347551821
+    },
+    {
+      "name": "Hermit Rank 9 - Emergency Shift",
+      "arcana": "Hermit",
+      "rank": 9,
+      "feature_id": 99,
+      "trigger_cmm_ids": [
+        10,
+        26
+      ],
+      "location_id": 1347551822
+    },
+    {
+      "name": "Hermit Rank 10 - Final Guard",
+      "arcana": "Hermit",
+      "rank": 10,
+      "feature_id": 100,
+      "trigger_cmm_ids": [
+        10,
+        26
+      ],
+      "location_id": 1347551823
+    },
+    {
+      "name": "Hermit Rank 10 - Second Awakening",
+      "arcana": "Hermit",
+      "rank": 10,
+      "feature_id": 239,
+      "trigger_cmm_ids": [
+        10,
+        26
+      ],
+      "location_id": 1347551824
+    },
+    {
+      "name": "Hermit Rank 10 - Second Awakening R",
+      "arcana": "Hermit",
+      "rank": 10,
+      "feature_id": 265,
+      "trigger_cmm_ids": [
+        10,
+        26
+      ],
+      "location_id": 1347551825
+    },
+    {
+      "name": "Hierophant Rank 2 - Coffee Basics",
+      "arcana": "Hierophant",
+      "rank": 2,
+      "feature_id": 52,
+      "trigger_cmm_ids": [
+        6
+      ],
+      "location_id": 1347551826
+    },
+    {
+      "name": "Hierophant Rank 4 - Leblanc Curry",
+      "arcana": "Hierophant",
+      "rank": 4,
+      "feature_id": 55,
+      "trigger_cmm_ids": [
+        6
+      ],
+      "location_id": 1347551827
+    },
+    {
+      "name": "Hierophant Rank 6 - Coffee Mastery",
+      "arcana": "Hierophant",
+      "rank": 6,
+      "feature_id": 54,
+      "trigger_cmm_ids": [
+        6
+      ],
+      "location_id": 1347551828
+    },
+    {
+      "name": "Hierophant Rank 9 - Curry Tips",
+      "arcana": "Hierophant",
+      "rank": 9,
+      "feature_id": 57,
+      "trigger_cmm_ids": [
+        6
+      ],
+      "location_id": 1347551829
+    },
+    {
+      "name": "Hierophant Rank 10 - Curry Mastery",
+      "arcana": "Hierophant",
+      "rank": 10,
+      "feature_id": 59,
+      "trigger_cmm_ids": [
+        6
+      ],
+      "location_id": 1347551830
+    },
+    {
+      "name": "Judgement Rank 10 - True Justice",
+      "arcana": "Judgement",
+      "rank": 10,
+      "feature_id": 210,
+      "trigger_cmm_ids": [
+        21,
+        32
+      ],
+      "location_id": 1347551831
+    },
+    {
+      "name": "Justice Rank 2 - Sleuthing Instinct",
+      "arcana": "Justice",
+      "rank": 2,
+      "feature_id": 240,
+      "trigger_cmm_ids": [
+        9
+      ],
+      "location_id": 1347551832
+    },
+    {
+      "name": "Justice Rank 3 - Smooth Talk",
+      "arcana": "Justice",
+      "rank": 3,
+      "feature_id": 87,
+      "trigger_cmm_ids": [
+        9
+      ],
+      "location_id": 1347551833
+    },
+    {
+      "name": "Justice Rank 4 - Sleuthing Mastery",
+      "arcana": "Justice",
+      "rank": 4,
+      "feature_id": 243,
+      "trigger_cmm_ids": [
+        9
+      ],
+      "location_id": 1347551834
+    },
+    {
+      "name": "Justice Rank 6 - Follow Up",
+      "arcana": "Justice",
+      "rank": 6,
+      "feature_id": 86,
+      "trigger_cmm_ids": [
+        9
+      ],
+      "location_id": 1347551835
+    },
+    {
+      "name": "Justice Rank 7 - Harisen Recovery",
+      "arcana": "Justice",
+      "rank": 7,
+      "feature_id": 85,
+      "trigger_cmm_ids": [
+        9
+      ],
+      "location_id": 1347551836
+    },
+    {
+      "name": "Justice Rank 10 - Protect",
+      "arcana": "Justice",
+      "rank": 10,
+      "feature_id": 247,
+      "trigger_cmm_ids": [
+        9
+      ],
+      "location_id": 1347551837
+    },
+    {
+      "name": "Justice Rank 10 - Endure",
+      "arcana": "Justice",
+      "rank": 10,
+      "feature_id": 248,
+      "trigger_cmm_ids": [
+        9
+      ],
+      "location_id": 1347551838
+    },
+    {
+      "name": "Justice Rank 10 - Second Awakening R",
+      "arcana": "Justice",
+      "rank": 10,
+      "feature_id": 256,
+      "trigger_cmm_ids": [
+        9
+      ],
+      "location_id": 1347551839
+    },
+    {
+      "name": "Lovers Rank 2 - Girl Talk",
+      "arcana": "Lovers",
+      "rank": 2,
+      "feature_id": 62,
+      "trigger_cmm_ids": [
+        7,
+        25
+      ],
+      "location_id": 1347551840
+    },
+    {
+      "name": "Lovers Rank 3 - Follow Up",
+      "arcana": "Lovers",
+      "rank": 3,
+      "feature_id": 63,
+      "trigger_cmm_ids": [
+        7,
+        25
+      ],
+      "location_id": 1347551841
+    },
+    {
+      "name": "Lovers Rank 4 - Sexy Technique",
+      "arcana": "Lovers",
+      "rank": 4,
+      "feature_id": 281,
+      "trigger_cmm_ids": [
+        7,
+        25
+      ],
+      "location_id": 1347551842
+    },
+    {
+      "name": "Lovers Rank 5 - Crocodile Tears",
+      "arcana": "Lovers",
+      "rank": 5,
+      "feature_id": 64,
+      "trigger_cmm_ids": [
+        7,
+        25
+      ],
+      "location_id": 1347551843
+    },
+    {
+      "name": "Lovers Rank 6 - Harisen Recovery",
+      "arcana": "Lovers",
+      "rank": 6,
+      "feature_id": 61,
+      "trigger_cmm_ids": [
+        7,
+        25
+      ],
+      "location_id": 1347551844
+    },
+    {
+      "name": "Lovers Rank 8 - Endure",
+      "arcana": "Lovers",
+      "rank": 8,
+      "feature_id": 67,
+      "trigger_cmm_ids": [
+        7,
+        25
+      ],
+      "location_id": 1347551845
+    },
+    {
+      "name": "Lovers Rank 9 - Protect",
+      "arcana": "Lovers",
+      "rank": 9,
+      "feature_id": 69,
+      "trigger_cmm_ids": [
+        7,
+        25
+      ],
+      "location_id": 1347551846
+    },
+    {
+      "name": "Lovers Rank 10 - Second Awakening",
+      "arcana": "Lovers",
+      "rank": 10,
+      "feature_id": 236,
+      "trigger_cmm_ids": [
+        7,
+        25
+      ],
+      "location_id": 1347551847
+    },
+    {
+      "name": "Lovers Rank 10 - Second Awakening R",
+      "arcana": "Lovers",
+      "rank": 10,
+      "feature_id": 246,
+      "trigger_cmm_ids": [
+        7,
+        25
+      ],
+      "location_id": 1347551848
+    },
+    {
+      "name": "Magician Rank 1 - Infiltration Tools",
+      "arcana": "Magician",
+      "rank": 1,
+      "feature_id": 11,
+      "trigger_cmm_ids": [
+        2
+      ],
+      "location_id": 1347551849
+    },
+    {
+      "name": "Magician Rank 3 - Follow Up",
+      "arcana": "Magician",
+      "rank": 3,
+      "feature_id": 12,
+      "trigger_cmm_ids": [
+        2
+      ],
+      "location_id": 1347551850
+    },
+    {
+      "name": "Magician Rank 4 - Kitty Talk",
+      "arcana": "Magician",
+      "rank": 4,
+      "feature_id": 15,
+      "trigger_cmm_ids": [
+        2
+      ],
+      "location_id": 1347551851
+    },
+    {
+      "name": "Magician Rank 5 - Pickpocket",
+      "arcana": "Magician",
+      "rank": 5,
+      "feature_id": 78,
+      "trigger_cmm_ids": [
+        2
+      ],
+      "location_id": 1347551852
+    },
+    {
+      "name": "Magician Rank 6 - Ace Tools",
+      "arcana": "Magician",
+      "rank": 6,
+      "feature_id": 14,
+      "trigger_cmm_ids": [
+        2
+      ],
+      "location_id": 1347551853
+    },
+    {
+      "name": "Magician Rank 7 - Harisen Recovery",
+      "arcana": "Magician",
+      "rank": 7,
+      "feature_id": 18,
+      "trigger_cmm_ids": [
+        2
+      ],
+      "location_id": 1347551854
+    },
+    {
+      "name": "Magician Rank 8 - Endure",
+      "arcana": "Magician",
+      "rank": 8,
+      "feature_id": 17,
+      "trigger_cmm_ids": [
+        2
+      ],
+      "location_id": 1347551855
+    },
+    {
+      "name": "Magician Rank 9 - Protect",
+      "arcana": "Magician",
+      "rank": 9,
+      "feature_id": 19,
+      "trigger_cmm_ids": [
+        2
+      ],
+      "location_id": 1347551856
+    },
+    {
+      "name": "Magician Rank 10 - Second Awakening",
+      "arcana": "Magician",
+      "rank": 10,
+      "feature_id": 231,
+      "trigger_cmm_ids": [
+        2
+      ],
+      "location_id": 1347551857
+    },
+    {
+      "name": "Magician Rank 10 - Second Awakening R",
+      "arcana": "Magician",
+      "rank": 10,
+      "feature_id": 241,
+      "trigger_cmm_ids": [
+        2
+      ],
+      "location_id": 1347551858
+    },
+    {
+      "name": "Moon Rank 1 - Mishima's Support",
+      "arcana": "Moon",
+      "rank": 1,
+      "feature_id": 190,
+      "trigger_cmm_ids": [
+        19
+      ],
+      "location_id": 1347551859
+    },
+    {
+      "name": "Moon Rank 3 - Mishima's Enthusiasm",
+      "arcana": "Moon",
+      "rank": 3,
+      "feature_id": 181,
+      "trigger_cmm_ids": [
+        19
+      ],
+      "location_id": 1347551860
+    },
+    {
+      "name": "Moon Rank 5 - Mishima's Desperation",
+      "arcana": "Moon",
+      "rank": 5,
+      "feature_id": 36,
+      "trigger_cmm_ids": [
+        19
+      ],
+      "location_id": 1347551861
+    },
+    {
+      "name": "Moon Rank 7 - Phanboy",
+      "arcana": "Moon",
+      "rank": 7,
+      "feature_id": 183,
+      "trigger_cmm_ids": [
+        19
+      ],
+      "location_id": 1347551862
+    },
+    {
+      "name": "Moon Rank 10 - Salvation Wish",
+      "arcana": "Moon",
+      "rank": 10,
+      "feature_id": 40,
+      "trigger_cmm_ids": [
+        19
+      ],
+      "location_id": 1347551863
+    },
+    {
+      "name": "Priestess Rank 1 - Shadow Calculus",
+      "arcana": "Priestess",
+      "rank": 1,
+      "feature_id": 21,
+      "trigger_cmm_ids": [
+        3,
+        23
+      ],
+      "location_id": 1347551864
+    },
+    {
+      "name": "Priestess Rank 3 - Black Belt Talk",
+      "arcana": "Priestess",
+      "rank": 3,
+      "feature_id": 23,
+      "trigger_cmm_ids": [
+        3,
+        23
+      ],
+      "location_id": 1347551865
+    },
+    {
+      "name": "Priestess Rank 4 - Follow Up",
+      "arcana": "Priestess",
+      "rank": 4,
+      "feature_id": 22,
+      "trigger_cmm_ids": [
+        3,
+        23
+      ],
+      "location_id": 1347551866
+    },
+    {
+      "name": "Priestess Rank 6 - Harisen Recovery",
+      "arcana": "Priestess",
+      "rank": 6,
+      "feature_id": 26,
+      "trigger_cmm_ids": [
+        3,
+        23
+      ],
+      "location_id": 1347551867
+    },
+    {
+      "name": "Priestess Rank 7 - Shadow Factorization",
+      "arcana": "Priestess",
+      "rank": 7,
+      "feature_id": 30,
+      "trigger_cmm_ids": [
+        3,
+        23
+      ],
+      "location_id": 1347551868
+    },
+    {
+      "name": "Priestess Rank 8 - Endure",
+      "arcana": "Priestess",
+      "rank": 8,
+      "feature_id": 27,
+      "trigger_cmm_ids": [
+        3,
+        23
+      ],
+      "location_id": 1347551869
+    },
+    {
+      "name": "Priestess Rank 9 - Protect",
+      "arcana": "Priestess",
+      "rank": 9,
+      "feature_id": 29,
+      "trigger_cmm_ids": [
+        3,
+        23
+      ],
+      "location_id": 1347551870
+    },
+    {
+      "name": "Priestess Rank 10 - Second Awakening",
+      "arcana": "Priestess",
+      "rank": 10,
+      "feature_id": 232,
+      "trigger_cmm_ids": [
+        3,
+        23
+      ],
+      "location_id": 1347551871
+    },
+    {
+      "name": "Priestess Rank 10 - Second Awakening R",
+      "arcana": "Priestess",
+      "rank": 10,
+      "feature_id": 242,
+      "trigger_cmm_ids": [
+        3,
+        23
+      ],
+      "location_id": 1347551872
+    },
+    {
+      "name": "Star Rank 1 - Koma Sabaki",
+      "arcana": "Star",
+      "rank": 1,
+      "feature_id": 171,
+      "trigger_cmm_ids": [
+        18,
+        31
+      ],
+      "location_id": 1347551873
+    },
+    {
+      "name": "Star Rank 3 - Uchikomi",
+      "arcana": "Star",
+      "rank": 3,
+      "feature_id": 173,
+      "trigger_cmm_ids": [
+        18,
+        31
+      ],
+      "location_id": 1347551874
+    },
+    {
+      "name": "Star Rank 5 - Kakoi Kuzushi",
+      "arcana": "Star",
+      "rank": 5,
+      "feature_id": 175,
+      "trigger_cmm_ids": [
+        18,
+        31
+      ],
+      "location_id": 1347551875
+    },
+    {
+      "name": "Star Rank 7 - Narikin",
+      "arcana": "Star",
+      "rank": 7,
+      "feature_id": 177,
+      "trigger_cmm_ids": [
+        18,
+        31
+      ],
+      "location_id": 1347551876
+    },
+    {
+      "name": "Star Rank 9 - Touryou",
+      "arcana": "Star",
+      "rank": 9,
+      "feature_id": 179,
+      "trigger_cmm_ids": [
+        18,
+        31
+      ],
+      "location_id": 1347551877
+    },
+    {
+      "name": "Star Rank 10 - Togo System",
+      "arcana": "Star",
+      "rank": 10,
+      "feature_id": 180,
+      "trigger_cmm_ids": [
+        18,
+        31
+      ],
+      "location_id": 1347551878
+    },
+    {
+      "name": "Strength Rank 1 - Group Guillotine",
+      "arcana": "Strength",
+      "rank": 1,
+      "feature_id": 113,
+      "trigger_cmm_ids": [
+        12
+      ],
+      "location_id": 1347551879
+    },
+    {
+      "name": "Strength Rank 3 - Lockdown",
+      "arcana": "Strength",
+      "rank": 3,
+      "feature_id": 111,
+      "trigger_cmm_ids": [
+        12
+      ],
+      "location_id": 1347551880
+    },
+    {
+      "name": "Strength Rank 5 - Special Treatment",
+      "arcana": "Strength",
+      "rank": 5,
+      "feature_id": 272,
+      "trigger_cmm_ids": [
+        12
+      ],
+      "location_id": 1347551881
+    },
+    {
+      "name": "Strength Rank 8 - Guillotine Booster",
+      "arcana": "Strength",
+      "rank": 8,
+      "feature_id": 118,
+      "trigger_cmm_ids": [
+        12
+      ],
+      "location_id": 1347551882
+    },
+    {
+      "name": "Strength Rank 10 - VIP Treatment",
+      "arcana": "Strength",
+      "rank": 10,
+      "feature_id": 120,
+      "trigger_cmm_ids": [
+        12
+      ],
+      "location_id": 1347551883
+    },
+    {
+      "name": "Sun Rank 2 - Diplomacy",
+      "arcana": "Sun",
+      "rank": 2,
+      "feature_id": 192,
+      "trigger_cmm_ids": [
+        20
+      ],
+      "location_id": 1347551884
+    },
+    {
+      "name": "Sun Rank 3 - Fundraising",
+      "arcana": "Sun",
+      "rank": 3,
+      "feature_id": 193,
+      "trigger_cmm_ids": [
+        20
+      ],
+      "location_id": 1347551885
+    },
+    {
+      "name": "Sun Rank 5 - Manipulation",
+      "arcana": "Sun",
+      "rank": 5,
+      "feature_id": 195,
+      "trigger_cmm_ids": [
+        20
+      ],
+      "location_id": 1347551886
+    },
+    {
+      "name": "Sun Rank 8 - Mind Control",
+      "arcana": "Sun",
+      "rank": 8,
+      "feature_id": 198,
+      "trigger_cmm_ids": [
+        20
+      ],
+      "location_id": 1347551887
+    },
+    {
+      "name": "Sun Rank 10 - Charismatic Speech",
+      "arcana": "Sun",
+      "rank": 10,
+      "feature_id": 200,
+      "trigger_cmm_ids": [
+        20
+      ],
+      "location_id": 1347551888
+    },
+    {
+      "name": "Temperance Rank 1 - Slack Off",
+      "arcana": "Temperance",
+      "rank": 1,
+      "feature_id": 141,
+      "trigger_cmm_ids": [
+        15,
+        29
+      ],
+      "location_id": 1347551889
+    },
+    {
+      "name": "Temperance Rank 3 - Housekeeping",
+      "arcana": "Temperance",
+      "rank": 3,
+      "feature_id": 143,
+      "trigger_cmm_ids": [
+        15,
+        29
+      ],
+      "location_id": 1347551890
+    },
+    {
+      "name": "Temperance Rank 5 - Free Time",
+      "arcana": "Temperance",
+      "rank": 5,
+      "feature_id": 145,
+      "trigger_cmm_ids": [
+        15,
+        29
+      ],
+      "location_id": 1347551891
+    },
+    {
+      "name": "Temperance Rank 6 - Super Housekeeping",
+      "arcana": "Temperance",
+      "rank": 6,
+      "feature_id": 147,
+      "trigger_cmm_ids": [
+        15,
+        29
+      ],
+      "location_id": 1347551892
+    },
+    {
+      "name": "Temperance Rank 10 - Special Massage",
+      "arcana": "Temperance",
+      "rank": 10,
+      "feature_id": 150,
+      "trigger_cmm_ids": [
+        15,
+        29
+      ],
+      "location_id": 1347551893
+    },
+    {
+      "name": "Tower Rank 1 - Down Shot",
+      "arcana": "Tower",
+      "rank": 1,
+      "feature_id": 161,
+      "trigger_cmm_ids": [
+        17
+      ],
+      "location_id": 1347551894
+    },
+    {
+      "name": "Tower Rank 2 - Bullet Hail",
+      "arcana": "Tower",
+      "rank": 2,
+      "feature_id": 162,
+      "trigger_cmm_ids": [
+        17
+      ],
+      "location_id": 1347551895
+    },
+    {
+      "name": "Tower Rank 3 - Warning Shot",
+      "arcana": "Tower",
+      "rank": 3,
+      "feature_id": 163,
+      "trigger_cmm_ids": [
+        17
+      ],
+      "location_id": 1347551896
+    },
+    {
+      "name": "Tower Rank 5 - Laced Bullets",
+      "arcana": "Tower",
+      "rank": 5,
+      "feature_id": 273,
+      "trigger_cmm_ids": [
+        17
+      ],
+      "location_id": 1347551897
+    },
+    {
+      "name": "Tower Rank 6 - Cheap Shot",
+      "arcana": "Tower",
+      "rank": 6,
+      "feature_id": 166,
+      "trigger_cmm_ids": [
+        17
+      ],
+      "location_id": 1347551898
+    },
+    {
+      "name": "Tower Rank 8 - Electric Slug",
+      "arcana": "Tower",
+      "rank": 8,
+      "feature_id": 168,
+      "trigger_cmm_ids": [
+        17
+      ],
+      "location_id": 1347551899
+    },
+    {
+      "name": "Tower Rank 10 - Oda Special",
+      "arcana": "Tower",
+      "rank": 10,
+      "feature_id": 170,
+      "trigger_cmm_ids": [
+        17
+      ],
+      "location_id": 1347551900
+    }
+  ]
+}

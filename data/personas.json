@@ -1,0 +1,1165 @@
+{
+  "catalog_version": 1,
+  "locations": [
+    {
+      "persona_id": 1,
+      "name": "Compendium - Metatron",
+      "location_id": 1347553281
+    },
+    {
+      "persona_id": 2,
+      "name": "Compendium - Beelzebub",
+      "location_id": 1347553282
+    },
+    {
+      "persona_id": 3,
+      "name": "Compendium - Cu Chulainn",
+      "location_id": 1347553283
+    },
+    {
+      "persona_id": 4,
+      "name": "Compendium - Jack-o'-Lantern",
+      "location_id": 1347553284
+    },
+    {
+      "persona_id": 5,
+      "name": "Compendium - Jack Frost",
+      "location_id": 1347553285
+    },
+    {
+      "persona_id": 6,
+      "name": "Compendium - Pixie",
+      "location_id": 1347553286
+    },
+    {
+      "persona_id": 7,
+      "name": "Compendium - Cerberus",
+      "location_id": 1347553287
+    },
+    {
+      "persona_id": 8,
+      "name": "Compendium - Lilim",
+      "location_id": 1347553288
+    },
+    {
+      "persona_id": 9,
+      "name": "Compendium - Eligor",
+      "location_id": 1347553289
+    },
+    {
+      "persona_id": 10,
+      "name": "Compendium - Odin",
+      "location_id": 1347553290
+    },
+    {
+      "persona_id": 11,
+      "name": "Compendium - Hua Po",
+      "location_id": 1347553291
+    },
+    {
+      "persona_id": 12,
+      "name": "Compendium - Decarabia",
+      "location_id": 1347553292
+    },
+    {
+      "persona_id": 13,
+      "name": "Compendium - Mara",
+      "location_id": 1347553293
+    },
+    {
+      "persona_id": 14,
+      "name": "Compendium - Ose",
+      "location_id": 1347553294
+    },
+    {
+      "persona_id": 15,
+      "name": "Compendium - Thor",
+      "location_id": 1347553295
+    },
+    {
+      "persona_id": 16,
+      "name": "Compendium - Unicorn",
+      "location_id": 1347553296
+    },
+    {
+      "persona_id": 17,
+      "name": "Compendium - Uriel",
+      "location_id": 1347553297
+    },
+    {
+      "persona_id": 18,
+      "name": "Compendium - Sarasvati",
+      "location_id": 1347553298
+    },
+    {
+      "persona_id": 19,
+      "name": "Compendium - Valkyrie",
+      "location_id": 1347553299
+    },
+    {
+      "persona_id": 20,
+      "name": "Compendium - Yaksini",
+      "location_id": 1347553300
+    },
+    {
+      "persona_id": 21,
+      "name": "Compendium - Ganesha",
+      "location_id": 1347553301
+    },
+    {
+      "persona_id": 22,
+      "name": "Compendium - Anubis",
+      "location_id": 1347553302
+    },
+    {
+      "persona_id": 23,
+      "name": "Compendium - Mot",
+      "location_id": 1347553303
+    },
+    {
+      "persona_id": 24,
+      "name": "Compendium - Raphael",
+      "location_id": 1347553304
+    },
+    {
+      "persona_id": 25,
+      "name": "Compendium - Scathach",
+      "location_id": 1347553305
+    },
+    {
+      "persona_id": 26,
+      "name": "Compendium - High Pixie",
+      "location_id": 1347553306
+    },
+    {
+      "persona_id": 27,
+      "name": "Compendium - Barong",
+      "location_id": 1347553307
+    },
+    {
+      "persona_id": 28,
+      "name": "Compendium - Girimehkala",
+      "location_id": 1347553308
+    },
+    {
+      "persona_id": 29,
+      "name": "Compendium - King Frost",
+      "location_id": 1347553309
+    },
+    {
+      "persona_id": 30,
+      "name": "Compendium - Narcissus",
+      "location_id": 1347553310
+    },
+    {
+      "persona_id": 31,
+      "name": "Compendium - Isis",
+      "location_id": 1347553311
+    },
+    {
+      "persona_id": 32,
+      "name": "Compendium - Lamia",
+      "location_id": 1347553312
+    },
+    {
+      "persona_id": 33,
+      "name": "Compendium - Legion",
+      "location_id": 1347553313
+    },
+    {
+      "persona_id": 34,
+      "name": "Compendium - Rakshasa",
+      "location_id": 1347553314
+    },
+    {
+      "persona_id": 35,
+      "name": "Compendium - Mokoi",
+      "location_id": 1347553315
+    },
+    {
+      "persona_id": 36,
+      "name": "Compendium - Forneus",
+      "location_id": 1347553316
+    },
+    {
+      "persona_id": 37,
+      "name": "Compendium - Setanta",
+      "location_id": 1347553317
+    },
+    {
+      "persona_id": 38,
+      "name": "Compendium - Titania",
+      "location_id": 1347553318
+    },
+    {
+      "persona_id": 39,
+      "name": "Compendium - Incubus",
+      "location_id": 1347553319
+    },
+    {
+      "persona_id": 40,
+      "name": "Compendium - Oni",
+      "location_id": 1347553320
+    },
+    {
+      "persona_id": 41,
+      "name": "Compendium - Lilith",
+      "location_id": 1347553321
+    },
+    {
+      "persona_id": 42,
+      "name": "Compendium - Rangda",
+      "location_id": 1347553322
+    },
+    {
+      "persona_id": 43,
+      "name": "Compendium - Makami",
+      "location_id": 1347553323
+    },
+    {
+      "persona_id": 44,
+      "name": "Compendium - Parvati",
+      "location_id": 1347553324
+    },
+    {
+      "persona_id": 45,
+      "name": "Compendium - Gabriel",
+      "location_id": 1347553325
+    },
+    {
+      "persona_id": 46,
+      "name": "Compendium - Zaou-Gongen",
+      "location_id": 1347553326
+    },
+    {
+      "persona_id": 47,
+      "name": "Compendium - Alice",
+      "location_id": 1347553327
+    },
+    {
+      "persona_id": 48,
+      "name": "Compendium - Kali",
+      "location_id": 1347553328
+    },
+    {
+      "persona_id": 49,
+      "name": "Compendium - Kurama Tengu",
+      "location_id": 1347553329
+    },
+    {
+      "persona_id": 50,
+      "name": "Compendium - Oberon",
+      "location_id": 1347553330
+    },
+    {
+      "persona_id": 51,
+      "name": "Compendium - Shiki-Ouji",
+      "location_id": 1347553331
+    },
+    {
+      "persona_id": 52,
+      "name": "Compendium - Yamata-no-Orochi",
+      "location_id": 1347553332
+    },
+    {
+      "persona_id": 53,
+      "name": "Compendium - Orobas",
+      "location_id": 1347553333
+    },
+    {
+      "persona_id": 54,
+      "name": "Compendium - Hanuman",
+      "location_id": 1347553334
+    },
+    {
+      "persona_id": 55,
+      "name": "Compendium - Archangel",
+      "location_id": 1347553335
+    },
+    {
+      "persona_id": 56,
+      "name": "Compendium - Obariyon",
+      "location_id": 1347553336
+    },
+    {
+      "persona_id": 57,
+      "name": "Compendium - Queen Mab",
+      "location_id": 1347553337
+    },
+    {
+      "persona_id": 58,
+      "name": "Compendium - Sandalphon",
+      "location_id": 1347553338
+    },
+    {
+      "persona_id": 59,
+      "name": "Compendium - Abaddon",
+      "location_id": 1347553339
+    },
+    {
+      "persona_id": 60,
+      "name": "Compendium - Shiisaa",
+      "location_id": 1347553340
+    },
+    {
+      "persona_id": 61,
+      "name": "Compendium - Sandman",
+      "location_id": 1347553341
+    },
+    {
+      "persona_id": 62,
+      "name": "Compendium - Belial",
+      "location_id": 1347553342
+    },
+    {
+      "persona_id": 63,
+      "name": "Compendium - Leanan Sidhe",
+      "location_id": 1347553343
+    },
+    {
+      "persona_id": 64,
+      "name": "Compendium - Cybele",
+      "location_id": 1347553344
+    },
+    {
+      "persona_id": 65,
+      "name": "Compendium - Chernobog",
+      "location_id": 1347553345
+    },
+    {
+      "persona_id": 66,
+      "name": "Compendium - Flauros",
+      "location_id": 1347553346
+    },
+    {
+      "persona_id": 67,
+      "name": "Compendium - Ippon-Datara",
+      "location_id": 1347553347
+    },
+    {
+      "persona_id": 68,
+      "name": "Compendium - Orthrus",
+      "location_id": 1347553348
+    },
+    {
+      "persona_id": 69,
+      "name": "Compendium - Succubus",
+      "location_id": 1347553349
+    },
+    {
+      "persona_id": 70,
+      "name": "Compendium - Mothman",
+      "location_id": 1347553350
+    },
+    {
+      "persona_id": 72,
+      "name": "Compendium - Dominion",
+      "location_id": 1347553352
+    },
+    {
+      "persona_id": 73,
+      "name": "Compendium - Nekomata",
+      "location_id": 1347553353
+    },
+    {
+      "persona_id": 74,
+      "name": "Compendium - Black Frost",
+      "location_id": 1347553354
+    },
+    {
+      "persona_id": 75,
+      "name": "Compendium - Arahabaki",
+      "location_id": 1347553355
+    },
+    {
+      "persona_id": 76,
+      "name": "Compendium - Angel",
+      "location_id": 1347553356
+    },
+    {
+      "persona_id": 77,
+      "name": "Compendium - Skadi",
+      "location_id": 1347553357
+    },
+    {
+      "persona_id": 78,
+      "name": "Compendium - Kikuri-Hime",
+      "location_id": 1347553358
+    },
+    {
+      "persona_id": 79,
+      "name": "Compendium - Chi You",
+      "location_id": 1347553359
+    },
+    {
+      "persona_id": 80,
+      "name": "Compendium - Power",
+      "location_id": 1347553360
+    },
+    {
+      "persona_id": 81,
+      "name": "Compendium - Inugami",
+      "location_id": 1347553361
+    },
+    {
+      "persona_id": 82,
+      "name": "Compendium - Nebiros",
+      "location_id": 1347553362
+    },
+    {
+      "persona_id": 84,
+      "name": "Compendium - Slime",
+      "location_id": 1347553364
+    },
+    {
+      "persona_id": 85,
+      "name": "Compendium - Anzu",
+      "location_id": 1347553365
+    },
+    {
+      "persona_id": 86,
+      "name": "Compendium - Yatagarasu",
+      "location_id": 1347553366
+    },
+    {
+      "persona_id": 87,
+      "name": "Compendium - Yoshitsune",
+      "location_id": 1347553367
+    },
+    {
+      "persona_id": 88,
+      "name": "Compendium - Take-Minakata",
+      "location_id": 1347553368
+    },
+    {
+      "persona_id": 89,
+      "name": "Compendium - Ame-no-Uzume",
+      "location_id": 1347553369
+    },
+    {
+      "persona_id": 90,
+      "name": "Compendium - Kushinada",
+      "location_id": 1347553370
+    },
+    {
+      "persona_id": 91,
+      "name": "Compendium - Kumbhanda",
+      "location_id": 1347553371
+    },
+    {
+      "persona_id": 92,
+      "name": "Compendium - Ongyo-Ki",
+      "location_id": 1347553372
+    },
+    {
+      "persona_id": 93,
+      "name": "Compendium - Kin-Ki",
+      "location_id": 1347553373
+    },
+    {
+      "persona_id": 94,
+      "name": "Compendium - Sui-Ki",
+      "location_id": 1347553374
+    },
+    {
+      "persona_id": 95,
+      "name": "Compendium - Fuu-Ki",
+      "location_id": 1347553375
+    },
+    {
+      "persona_id": 96,
+      "name": "Compendium - Jatayu",
+      "location_id": 1347553376
+    },
+    {
+      "persona_id": 97,
+      "name": "Compendium - Kaiwan",
+      "location_id": 1347553377
+    },
+    {
+      "persona_id": 98,
+      "name": "Compendium - Kelpie",
+      "location_id": 1347553378
+    },
+    {
+      "persona_id": 99,
+      "name": "Compendium - Thoth",
+      "location_id": 1347553379
+    },
+    {
+      "persona_id": 100,
+      "name": "Compendium - Dionysus",
+      "location_id": 1347553380
+    },
+    {
+      "persona_id": 101,
+      "name": "Compendium - Apsaras",
+      "location_id": 1347553381
+    },
+    {
+      "persona_id": 102,
+      "name": "Compendium - Andras",
+      "location_id": 1347553382
+    },
+    {
+      "persona_id": 104,
+      "name": "Compendium - Koropokguru",
+      "location_id": 1347553384
+    },
+    {
+      "persona_id": 105,
+      "name": "Compendium - Koppa Tengu",
+      "location_id": 1347553385
+    },
+    {
+      "persona_id": 106,
+      "name": "Compendium - Regent",
+      "location_id": 1347553386
+    },
+    {
+      "persona_id": 107,
+      "name": "Compendium - Queen's Necklace",
+      "location_id": 1347553387
+    },
+    {
+      "persona_id": 108,
+      "name": "Compendium - Stone of Scone",
+      "location_id": 1347553388
+    },
+    {
+      "persona_id": 109,
+      "name": "Compendium - Koh-i-Noor",
+      "location_id": 1347553389
+    },
+    {
+      "persona_id": 110,
+      "name": "Compendium - Orlov",
+      "location_id": 1347553390
+    },
+    {
+      "persona_id": 111,
+      "name": "Compendium - Emperor's Amulet",
+      "location_id": 1347553391
+    },
+    {
+      "persona_id": 112,
+      "name": "Compendium - Hope Diamond",
+      "location_id": 1347553392
+    },
+    {
+      "persona_id": 113,
+      "name": "Compendium - Crystal Skull",
+      "location_id": 1347553393
+    },
+    {
+      "persona_id": 114,
+      "name": "Compendium - Orichalcum",
+      "location_id": 1347553394
+    },
+    {
+      "persona_id": 121,
+      "name": "Compendium - Mandrake",
+      "location_id": 1347553401
+    },
+    {
+      "persona_id": 122,
+      "name": "Compendium - Baal",
+      "location_id": 1347553402
+    },
+    {
+      "persona_id": 123,
+      "name": "Compendium - Dakini",
+      "location_id": 1347553403
+    },
+    {
+      "persona_id": 124,
+      "name": "Compendium - Silky",
+      "location_id": 1347553404
+    },
+    {
+      "persona_id": 125,
+      "name": "Compendium - Bugs",
+      "location_id": 1347553405
+    },
+    {
+      "persona_id": 126,
+      "name": "Compendium - Black Ooze",
+      "location_id": 1347553406
+    },
+    {
+      "persona_id": 127,
+      "name": "Compendium - Bicorn",
+      "location_id": 1347553407
+    },
+    {
+      "persona_id": 128,
+      "name": "Compendium - Mithras",
+      "location_id": 1347553408
+    },
+    {
+      "persona_id": 129,
+      "name": "Compendium - Sudama",
+      "location_id": 1347553409
+    },
+    {
+      "persona_id": 130,
+      "name": "Compendium - Kodama",
+      "location_id": 1347553410
+    },
+    {
+      "persona_id": 131,
+      "name": "Compendium - Agathion",
+      "location_id": 1347553411
+    },
+    {
+      "persona_id": 132,
+      "name": "Compendium - Onmoraki",
+      "location_id": 1347553412
+    },
+    {
+      "persona_id": 133,
+      "name": "Compendium - Nue",
+      "location_id": 1347553413
+    },
+    {
+      "persona_id": 134,
+      "name": "Compendium - Pisaca",
+      "location_id": 1347553414
+    },
+    {
+      "persona_id": 135,
+      "name": "Compendium - Melchizedek",
+      "location_id": 1347553415
+    },
+    {
+      "persona_id": 136,
+      "name": "Compendium - Baphomet",
+      "location_id": 1347553416
+    },
+    {
+      "persona_id": 137,
+      "name": "Compendium - Raja Naga",
+      "location_id": 1347553417
+    },
+    {
+      "persona_id": 138,
+      "name": "Compendium - Naga",
+      "location_id": 1347553418
+    },
+    {
+      "persona_id": 139,
+      "name": "Compendium - Garuda",
+      "location_id": 1347553419
+    },
+    {
+      "persona_id": 140,
+      "name": "Compendium - Moloch",
+      "location_id": 1347553420
+    },
+    {
+      "persona_id": 141,
+      "name": "Compendium - Norn",
+      "location_id": 1347553421
+    },
+    {
+      "persona_id": 142,
+      "name": "Compendium - Belphegor",
+      "location_id": 1347553422
+    },
+    {
+      "persona_id": 143,
+      "name": "Compendium - Berith",
+      "location_id": 1347553423
+    },
+    {
+      "persona_id": 144,
+      "name": "Compendium - Choronzon",
+      "location_id": 1347553424
+    },
+    {
+      "persona_id": 151,
+      "name": "Compendium - Nigi Mitama",
+      "location_id": 1347553431
+    },
+    {
+      "persona_id": 152,
+      "name": "Compendium - Kushi Mitama",
+      "location_id": 1347553432
+    },
+    {
+      "persona_id": 153,
+      "name": "Compendium - Ara Mitama",
+      "location_id": 1347553433
+    },
+    {
+      "persona_id": 154,
+      "name": "Compendium - Saki Mitama",
+      "location_id": 1347553434
+    },
+    {
+      "persona_id": 156,
+      "name": "Compendium - Shiva",
+      "location_id": 1347553436
+    },
+    {
+      "persona_id": 157,
+      "name": "Compendium - Michael",
+      "location_id": 1347553437
+    },
+    {
+      "persona_id": 158,
+      "name": "Compendium - Asura",
+      "location_id": 1347553438
+    },
+    {
+      "persona_id": 159,
+      "name": "Compendium - Mada",
+      "location_id": 1347553439
+    },
+    {
+      "persona_id": 160,
+      "name": "Compendium - Mother Harlot",
+      "location_id": 1347553440
+    },
+    {
+      "persona_id": 161,
+      "name": "Compendium - Clotho",
+      "location_id": 1347553441
+    },
+    {
+      "persona_id": 162,
+      "name": "Compendium - Lachesis",
+      "location_id": 1347553442
+    },
+    {
+      "persona_id": 163,
+      "name": "Compendium - Atropos",
+      "location_id": 1347553443
+    },
+    {
+      "persona_id": 164,
+      "name": "Compendium - Ardha",
+      "location_id": 1347553444
+    },
+    {
+      "persona_id": 166,
+      "name": "Compendium - Vishnu",
+      "location_id": 1347553446
+    },
+    {
+      "persona_id": 167,
+      "name": "Compendium - Hariti",
+      "location_id": 1347553447
+    },
+    {
+      "persona_id": 168,
+      "name": "Compendium - Yurlungur",
+      "location_id": 1347553448
+    },
+    {
+      "persona_id": 169,
+      "name": "Compendium - Hecatoncheires",
+      "location_id": 1347553449
+    },
+    {
+      "persona_id": 170,
+      "name": "Compendium - Satanael",
+      "location_id": 1347553450
+    },
+    {
+      "persona_id": 181,
+      "name": "Compendium - Orpheus",
+      "location_id": 1347553461
+    },
+    {
+      "persona_id": 182,
+      "name": "Compendium - Thanatos",
+      "location_id": 1347553462
+    },
+    {
+      "persona_id": 183,
+      "name": "Compendium - Izanagi",
+      "location_id": 1347553463
+    },
+    {
+      "persona_id": 184,
+      "name": "Compendium - Magatsu-Izanagi",
+      "location_id": 1347553464
+    },
+    {
+      "persona_id": 185,
+      "name": "Compendium - Kaguya",
+      "location_id": 1347553465
+    },
+    {
+      "persona_id": 186,
+      "name": "Compendium - Ariadne",
+      "location_id": 1347553466
+    },
+    {
+      "persona_id": 187,
+      "name": "Compendium - Asterius",
+      "location_id": 1347553467
+    },
+    {
+      "persona_id": 188,
+      "name": "Compendium - Tsukiyomi",
+      "location_id": 1347553468
+    },
+    {
+      "persona_id": 189,
+      "name": "Compendium - Messiah",
+      "location_id": 1347553469
+    },
+    {
+      "persona_id": 190,
+      "name": "Compendium - Messiah Picaro",
+      "location_id": 1347553470
+    },
+    {
+      "persona_id": 191,
+      "name": "Compendium - Orpheus Picaro",
+      "location_id": 1347553471
+    },
+    {
+      "persona_id": 192,
+      "name": "Compendium - Thanatos Picaro",
+      "location_id": 1347553472
+    },
+    {
+      "persona_id": 193,
+      "name": "Compendium - Izanagi Picaro",
+      "location_id": 1347553473
+    },
+    {
+      "persona_id": 194,
+      "name": "Compendium - M. Izanagi Picaro",
+      "location_id": 1347553474
+    },
+    {
+      "persona_id": 195,
+      "name": "Compendium - Kaguya Picaro",
+      "location_id": 1347553475
+    },
+    {
+      "persona_id": 196,
+      "name": "Compendium - Ariadne Picaro",
+      "location_id": 1347553476
+    },
+    {
+      "persona_id": 197,
+      "name": "Compendium - Asterius Picaro",
+      "location_id": 1347553477
+    },
+    {
+      "persona_id": 198,
+      "name": "Compendium - Tsukiyomi Picaro",
+      "location_id": 1347553478
+    },
+    {
+      "persona_id": 201,
+      "name": "Compendium - Arsene",
+      "location_id": 1347553481
+    },
+    {
+      "persona_id": 252,
+      "name": "Compendium - Satan",
+      "location_id": 1347553532
+    },
+    {
+      "persona_id": 253,
+      "name": "Compendium - Lucifer",
+      "location_id": 1347553533
+    },
+    {
+      "persona_id": 254,
+      "name": "Compendium - Kohryu",
+      "location_id": 1347553534
+    },
+    {
+      "persona_id": 255,
+      "name": "Compendium - Okuninushi",
+      "location_id": 1347553535
+    },
+    {
+      "persona_id": 259,
+      "name": "Compendium - Futsunushi",
+      "location_id": 1347553539
+    },
+    {
+      "persona_id": 261,
+      "name": "Compendium - Seth",
+      "location_id": 1347553541
+    },
+    {
+      "persona_id": 262,
+      "name": "Compendium - Ishtar",
+      "location_id": 1347553542
+    },
+    {
+      "persona_id": 266,
+      "name": "Compendium - Lakshmi",
+      "location_id": 1347553546
+    },
+    {
+      "persona_id": 272,
+      "name": "Compendium - Fortuna",
+      "location_id": 1347553552
+    },
+    {
+      "persona_id": 273,
+      "name": "Compendium - Suzaku",
+      "location_id": 1347553553
+    },
+    {
+      "persona_id": 274,
+      "name": "Compendium - Seiryu",
+      "location_id": 1347553554
+    },
+    {
+      "persona_id": 275,
+      "name": "Compendium - Genbu",
+      "location_id": 1347553555
+    },
+    {
+      "persona_id": 276,
+      "name": "Compendium - Byakko",
+      "location_id": 1347553556
+    },
+    {
+      "persona_id": 277,
+      "name": "Compendium - Bishamonten",
+      "location_id": 1347553557
+    },
+    {
+      "persona_id": 278,
+      "name": "Compendium - Koumokuten",
+      "location_id": 1347553558
+    },
+    {
+      "persona_id": 279,
+      "name": "Compendium - Jikokuten",
+      "location_id": 1347553559
+    },
+    {
+      "persona_id": 280,
+      "name": "Compendium - Zouchouten",
+      "location_id": 1347553560
+    },
+    {
+      "persona_id": 281,
+      "name": "Compendium - Hell Biker",
+      "location_id": 1347553561
+    },
+    {
+      "persona_id": 282,
+      "name": "Compendium - Daisoujou",
+      "location_id": 1347553562
+    },
+    {
+      "persona_id": 283,
+      "name": "Compendium - Trumpeter",
+      "location_id": 1347553563
+    },
+    {
+      "persona_id": 284,
+      "name": "Compendium - White Rider",
+      "location_id": 1347553564
+    },
+    {
+      "persona_id": 285,
+      "name": "Compendium - Matador",
+      "location_id": 1347553565
+    },
+    {
+      "persona_id": 286,
+      "name": "Compendium - Pale Rider",
+      "location_id": 1347553566
+    },
+    {
+      "persona_id": 287,
+      "name": "Compendium - Horus",
+      "location_id": 1347553567
+    },
+    {
+      "persona_id": 289,
+      "name": "Compendium - Attis",
+      "location_id": 1347553569
+    },
+    {
+      "persona_id": 292,
+      "name": "Compendium - Sraosha",
+      "location_id": 1347553572
+    },
+    {
+      "persona_id": 295,
+      "name": "Compendium - Mitra",
+      "location_id": 1347553575
+    },
+    {
+      "persona_id": 296,
+      "name": "Compendium - Phoenix",
+      "location_id": 1347553576
+    },
+    {
+      "persona_id": 297,
+      "name": "Compendium - Principality",
+      "location_id": 1347553577
+    },
+    {
+      "persona_id": 298,
+      "name": "Compendium - Neko Shogun",
+      "location_id": 1347553578
+    },
+    {
+      "persona_id": 299,
+      "name": "Compendium - Vasuki",
+      "location_id": 1347553579
+    },
+    {
+      "persona_id": 300,
+      "name": "Compendium - Ananta",
+      "location_id": 1347553580
+    },
+    {
+      "persona_id": 303,
+      "name": "Compendium - Quetzalcoatl",
+      "location_id": 1347553583
+    },
+    {
+      "persona_id": 304,
+      "name": "Compendium - Red Rider",
+      "location_id": 1347553584
+    },
+    {
+      "persona_id": 305,
+      "name": "Compendium - Black Rider",
+      "location_id": 1347553585
+    },
+    {
+      "persona_id": 308,
+      "name": "Compendium - Pazuzu",
+      "location_id": 1347553588
+    },
+    {
+      "persona_id": 330,
+      "name": "Compendium - Maria",
+      "location_id": 1347553610
+    },
+    {
+      "persona_id": 331,
+      "name": "Compendium - Vohu Manah",
+      "location_id": 1347553611
+    },
+    {
+      "persona_id": 333,
+      "name": "Compendium - Mishaguji",
+      "location_id": 1347553613
+    },
+    {
+      "persona_id": 360,
+      "name": "Compendium - Izanagi no Okami",
+      "location_id": 1347553640
+    },
+    {
+      "persona_id": 362,
+      "name": "Compendium - Athena",
+      "location_id": 1347553642
+    },
+    {
+      "persona_id": 363,
+      "name": "Compendium - Raoul",
+      "location_id": 1347553643
+    },
+    {
+      "persona_id": 365,
+      "name": "Compendium - Orpheus (F)",
+      "location_id": 1347553645
+    },
+    {
+      "persona_id": 366,
+      "name": "Compendium - Izanagi no Okami Picaro",
+      "location_id": 1347553646
+    },
+    {
+      "persona_id": 368,
+      "name": "Compendium - Athena Picaro",
+      "location_id": 1347553648
+    },
+    {
+      "persona_id": 371,
+      "name": "Compendium - Orpheus (F) Picaro",
+      "location_id": 1347553651
+    },
+    {
+      "persona_id": 424,
+      "name": "Compendium - Macabre",
+      "location_id": 1347553704
+    },
+    {
+      "persona_id": 425,
+      "name": "Compendium - Alilat",
+      "location_id": 1347553705
+    },
+    {
+      "persona_id": 426,
+      "name": "Compendium - Thunderbird",
+      "location_id": 1347553706
+    },
+    {
+      "persona_id": 427,
+      "name": "Compendium - Fafnir",
+      "location_id": 1347553707
+    },
+    {
+      "persona_id": 428,
+      "name": "Compendium - Byakhee",
+      "location_id": 1347553708
+    },
+    {
+      "persona_id": 429,
+      "name": "Compendium - Hastur",
+      "location_id": 1347553709
+    },
+    {
+      "persona_id": 430,
+      "name": "Compendium - Tam Lin",
+      "location_id": 1347553710
+    },
+    {
+      "persona_id": 431,
+      "name": "Compendium - Throne",
+      "location_id": 1347553711
+    },
+    {
+      "persona_id": 432,
+      "name": "Compendium - Surt",
+      "location_id": 1347553712
+    },
+    {
+      "persona_id": 433,
+      "name": "Compendium - Loa",
+      "location_id": 1347553713
+    },
+    {
+      "persona_id": 434,
+      "name": "Compendium - Chimera",
+      "location_id": 1347553714
+    },
+    {
+      "persona_id": 435,
+      "name": "Compendium - Atavaka",
+      "location_id": 1347553715
+    },
+    {
+      "persona_id": 436,
+      "name": "Compendium - Caith Sith",
+      "location_id": 1347553716
+    },
+    {
+      "persona_id": 437,
+      "name": "Compendium - Siegfried",
+      "location_id": 1347553717
+    }
+  ]
+}

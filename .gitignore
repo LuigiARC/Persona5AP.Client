@@ -1,0 +1,23 @@
+.venv*/
+venv/
+env/
+**/bin/
+**/obj/
+**/__pycache__/
+*.log
+
+dist/*
+
+decompiled/
+local-tools/
+.ap-user/
+**/P5REssentials/
+**/*.BF
+**/*.bf
+**/*.BIN
+**/*.FTD
+**/*.cpk
+**/*.dmp
+
+# Downloaded dependency sources used only for release source bundles.
+.source-cache/

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+compiler_dll="$script_dir/../../local-tools/p5r-ap/atlus-script-tools/AtlusScriptCompiler.dll"
+
+if [[ ! -f "$compiler_dll" ]]; then
+    echo "Atlus Script Compiler was not found at: $compiler_dll" >&2
+    echo "Restore the workspace-local tools described in ../local-tools/p5r-ap/README.md." >&2
+    exit 1
+fi
+
+exec dotnet "$compiler_dll" "$@"
+

@@ -1,0 +1,9 @@
+{
+  "ServerAddress": "localhost:38281",
+  "ServerPassword": "",
+  "SlotName": "Joker",
+  "ConnectOnStartup": true,
+  "LogAllChestFlags": true,
+  "ReconcileOpenedChests": true,
+  "HubMenuHotkey": "F9"
+}

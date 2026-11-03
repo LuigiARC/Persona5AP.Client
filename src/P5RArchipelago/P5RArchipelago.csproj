@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <LangVersion>12.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>../../dist/P5RArchipelago</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../third_party/CriFs.V2.Hook.Interfaces/CriFs.V2.Hook.Interfaces.csproj" />
+    <ProjectReference Include="../../third_party/CriFsV2Lib.Definitions/CriFsV2Lib.Definitions.csproj" />
+    <PackageReference Include="Archipelago.MultiClient.Net" Version="6.3.1" />
+    <PackageReference Include="Reloaded.Memory.Sigscan" Version="3.1.9" />
+    <PackageReference Include="Reloaded.Mod.Interfaces" Version="2.4.0" ExcludeAssets="runtime" />
+    <PackageReference Include="Reloaded.SharedLib.Hooks" Version="1.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="../../data/chests.json" LogicalName="P5RArchipelago.chests.json" />
+    <EmbeddedResource Include="../../data/palaces.json" LogicalName="P5RArchipelago.palaces.json" />
+    <EmbeddedResource Include="../../data/confidant_abilities.json" LogicalName="P5RArchipelago.confidant_abilities.json" />
+    <EmbeddedResource Include="../../data/personas.json" LogicalName="P5RArchipelago.personas.json" />
+    <EmbeddedResource Include="../../data/tv_bundles.json" LogicalName="P5RArchipelago.tv_bundles.json" />
+    <Content Include="ModConfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="../../THIRD_PARTY_NOTICES.md" Link="NOTICE.md">
+      <TargetPath>NOTICE.md</TargetPath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config.example.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

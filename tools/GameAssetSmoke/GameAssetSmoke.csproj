@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DisableTransitiveFrameworkReferenceDownloads>true</DisableTransitiveFrameworkReferenceDownloads>
+    <!-- Test-only implementation; the mod uses the existing loader's implementation. -->
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../src/P5RArchipelago/GameAssets/*.cs" Link="GameAssets/%(Filename)%(Extension)" />
+    <ProjectReference Include="../../third_party/CriFs.V2.Hook.Interfaces/CriFs.V2.Hook.Interfaces.csproj" />
+    <ProjectReference Include="../../third_party/CriFsV2Lib.Definitions/CriFsV2Lib.Definitions.csproj" />
+    <Reference Include="CriFsV2Lib"><HintPath>$(CriFsLibraryPath)</HintPath></Reference>
+  </ItemGroup>
+</Project>
