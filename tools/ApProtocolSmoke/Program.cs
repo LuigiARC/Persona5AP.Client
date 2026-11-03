@@ -3,7 +3,7 @@ using Archipelago.MultiClient.Net.Enums;
 using Archipelago.MultiClient.Net.Helpers;
 using Archipelago.MultiClient.Net.Models;
 
-const string game = "Persona 5 Royal";
+const string game = "Persona 5 Royal (luigiarc)";
 const string slot = "Joker";
 const long armoryLocationId = 0x5052_0001;
 const long shidoClearLocationId = 0x5052_0106;

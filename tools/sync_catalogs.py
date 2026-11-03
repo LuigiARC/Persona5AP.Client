@@ -33,7 +33,7 @@ def digest(path):
 
 def verify():
     manifest = json.loads((ROOT / "data/catalogs.json").read_text())
-    if manifest["game"] != "Persona 5 Royal" or manifest["source_modules"] != MODULES:
+    if manifest["game"] != "Persona 5 Royal (luigiarc)" or manifest["source_modules"] != MODULES:
         raise ValueError("Catalog snapshot game or source-module mapping differs from this client")
     if set(manifest["files"]) != set(NAMES):
         raise ValueError("Catalog snapshot file list differs from the expected protocol catalogs")

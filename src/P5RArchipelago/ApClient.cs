@@ -11,7 +11,7 @@ namespace P5RArchipelago;
 
 internal sealed class ApClient : IDisposable
 {
-    public const string GameName = "Persona 5 Royal";
+    public const string GameName = "Persona 5 Royal (luigiarc)";
     public const long VictoryItemId = 0x5052_1003;
     public const long PalaceClearTokenItemId = 0x5052_1004;
     public const long ProgressiveMementosAccessItemId = 0x5052_1007;

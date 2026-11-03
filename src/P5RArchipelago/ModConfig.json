@@ -1,7 +1,7 @@
 {
   "ModId": "luigi.p5r.archipelago",
   "ModName": "Persona 5 AP",
-  "ModAuthor": "Luigi",
+  "ModAuthor": "luigiarc",
   "ModVersion": "0.13.1",
   "ModDescription": "Persona 5 Royal Archipelago checks, Palace goals, and a hotkey-accessible hub.",
   "ModDll": "P5RArchipelago.dll",
