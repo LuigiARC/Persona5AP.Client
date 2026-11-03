@@ -8,7 +8,7 @@ its original notices and licenses.
 
 - **Daphoa, ArchipelagoP5RMod**: Starting base for this implemetation. 
   Native signatures, flow-command layouts and chest-hook logic was very helpful in understanding the inner workings of the game.
-  Copyright (c) 2025 Daphoa. Full notice: licenses/Daphoa-MIT.txt.
+  Copyright (c) 2025 Daphoa.
   https://github.com/Daphoa/ArchipelagoP5RMod
 - **CRIT MAGNET, P5R-poptracker-pack-for-AP**: 
   Chest display labels were studied for the catalog generator.
