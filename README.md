@@ -1,4 +1,4 @@
-**<u>[Client](https://github.com/LuigiARC/Persona5AP.Client/)</u> [Apworld](https://github.com/LuigiARC/Archipelago-P5R/releases/) [Details](https://github.com/LuigiARC/Archipelago-P5R/tree/p5r/docs/en_Persona%205%20Royal.md) [Setup](https://github.com/LuigiARC/Archipelago-P5R/tree/p5r/docs/setup_en.md)**
+**<u>[Client](https://github.com/LuigiARC/Persona5AP.Client/)</u> [Apworld](https://github.com/LuigiARC/Archipelago-P5R/releases/) [Details](https://github.com/LuigiARC/Archipelago-P5R/blob/main/worlds/p5r/docs/en_Persona%205%20Royal.md) [Setup](https://github.com/LuigiARC/Archipelago-P5R/blob/main/worlds/p5r/docs/setup_en.md)**
 
 # Persona 5 AP Client
     
