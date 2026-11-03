@@ -52,13 +52,13 @@ def main():
         manifest = verify()
         if args.archipelago:
             for name in NAMES:
-                if hashlib.sha256(encoded_catalog(args.archipelago / "worlds/p5r", name)).hexdigest() != manifest["files"][name]:
+                if hashlib.sha256(encoded_catalog(args.archipelago / "worlds/p5r-luigiarc", name)).hexdigest() != manifest["files"][name]:
                     raise ValueError(f"Client and APWorld catalogs differ: {name}")
         print("Client catalog snapshot verified.")
         return
     if not args.archipelago:
         parser.error("Supply the Archipelago fork checkout, or use --check")
-    world = args.archipelago / "worlds/p5r"
+    world = args.archipelago / "worlds/p5r-luigiarc"
     contents = {name: encoded_catalog(world, name) for name in NAMES}
     metadata = json.loads((world / "archipelago.json").read_text())
     output = ROOT / "data"
@@ -66,7 +66,7 @@ def main():
     for name, content in contents.items():
         (output / name).write_bytes(content)
     manifest = {"game": metadata["game"], "apworld_version": metadata["world_version"],
-                "source_path": "worlds/p5r", "source_modules": MODULES,
+                "source_path": "worlds/p5r-luigiarc", "source_modules": MODULES,
                 "files": {name: digest(output / name) for name in NAMES}}
     (output / "catalogs.json").write_text(json.dumps(manifest, indent=2) + "\n")
     print("Updated five client catalogs from the APWorld fork.")

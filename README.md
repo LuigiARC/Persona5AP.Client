@@ -1,4 +1,4 @@
-**<u>[Client](https://github.com/LuigiARC/Persona5AP.Client/)</u> [Apworld](https://github.com/LuigiARC/Archipelago-P5R/releases/) [Details](https://github.com/LuigiARC/Archipelago-P5R/blob/main/worlds/p5r/docs/en_Persona%205%20Royal.md) [Setup](https://github.com/LuigiARC/Archipelago-P5R/blob/main/worlds/p5r/docs/setup_en.md)**
+**<u>[Client](https://github.com/LuigiARC/Persona5AP.Client/)</u> [Apworld](https://github.com/LuigiARC/Archipelago-P5R/releases/) [Details](https://github.com/LuigiARC/Archipelago-P5R/blob/main/worlds/p5r-luigiarc/docs/en_Persona%205%20Royal.md) [Setup](https://github.com/LuigiARC/Archipelago-P5R/blob/main/worlds/p5r-luigiarc/docs/setup_en.md)**
 
 # Persona 5 AP Client
     
@@ -7,8 +7,8 @@ Use a disposable save and keep a backup.
 
 The F9 connection, shop and warp menu should work after the casino intro.
 
-The separate APWorld is maintained under `worlds/p5r` in the companion Archipelago
-fork. Install its `p5r.apworld` release to generate/host games. 
+The separate APWorld is maintained under `worlds/p5r-luigiarc` in the companion Archipelago
+fork. Install its `p5r-luigiarc.apworld` release to generate/host games.
 
 Using Universal Tracker is highly recommended. You may need to send location thorough the cheat console. 
 
