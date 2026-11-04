@@ -156,12 +156,13 @@ internal sealed partial class ArchipelagoMod : IDisposable
         {
             try
             {
-                _hubMenuHotkey = new HubMenuHotkey(scanner, _hubFlowRunner, config.HubMenuHotkey,
+                // _hubMenuHotkey = new HubMenuHotkey(scanner, _hubFlowRunner, config.HubMenuHotkey,
+                _hubMenuHotkey = new HubMenuHotkey(_hubFlowRunner, config.HubMenuHotkey,
                     () => _loadedSaveSlot.HasValue && Interlocked.CompareExchange(ref _hubMenuOpen, 1, 0) == 0,
                     () => Interlocked.Exchange(ref _hubMenuOpen, 0),
-                    () => GetActiveApPalace() is not null ||
-                        (_mementosPathMonitor?.CachedPath ?? Volatile.Read(ref _selectedMementosPath))
-                            is >= 1 and <= ApClient.MementosPathCount,
+                    // () => GetActiveApPalace() is not null ||
+                        // (_mementosPathMonitor?.CachedPath ?? Volatile.Read(ref _selectedMementosPath))
+                            // is >= 1 and <= ApClient.MementosPathCount,
                     log);
             }
             catch (Exception ex)

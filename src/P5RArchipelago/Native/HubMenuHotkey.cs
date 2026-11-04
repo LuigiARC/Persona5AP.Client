@@ -9,37 +9,40 @@ namespace P5RArchipelago.Native;
 /// </summary>
 internal sealed class HubMenuHotkey : IDisposable
 {
-    private const string SequenceRootPattern =
-        "48 8B 05 ?? ?? ?? ?? 48 8B 48 48 0F B6 01 24 01 C3";
+    // private const string SequenceRootPattern =
+        // "48 8B 05 ?? ?? ?? ?? 48 8B 48 48 0F B6 01 24 01 C3";
 
     [DllImport("user32.dll")]
     private static extern short GetAsyncKeyState(int virtualKey);
 
     private readonly HubFlowRunner _hubFlow;
-    private readonly IntPtr _sequenceRootAddress;
+    // private readonly IntPtr _sequenceRootAddress;
     private readonly int _virtualKey;
     private readonly Func<bool> _tryBegin;
     private readonly Action _cancelBegin;
-    private readonly Func<bool> _allowWhenFieldProbeFails;
+    // private readonly Func<bool> _allowWhenFieldProbeFails;
     private readonly Log _log;
     private readonly CancellationTokenSource _cancellation = new();
     private readonly Task _pollTask;
 
-    public HubMenuHotkey(AddressScanner scanner, HubFlowRunner hubFlow, string keyName,
-        Func<bool> tryBegin, Action cancelBegin, Func<bool> allowWhenFieldProbeFails, Log log)
+    // public HubMenuHotkey(AddressScanner scanner, HubFlowRunner hubFlow, string keyName,
+        // Func<bool> tryBegin, Action cancelBegin, Func<bool> allowWhenFieldProbeFails, Log log)
+    public HubMenuHotkey(HubFlowRunner hubFlow, string keyName,
+        Func<bool> tryBegin, Action cancelBegin, Log log)
     {
         _log = log;
         _hubFlow = hubFlow;
         _tryBegin = tryBegin;
         _cancelBegin = cancelBegin;
-        _allowWhenFieldProbeFails = allowWhenFieldProbeFails;
+        // _allowWhenFieldProbeFails = allowWhenFieldProbeFails;
         _virtualKey = ParseVirtualKey(keyName);
 
-        var sequenceInstruction = scanner.FindUnique("SequenceRoot", SequenceRootPattern);
-        _sequenceRootAddress = AddressScanner.ResolveRipRelative(sequenceInstruction, 3, 7);
+        // var sequenceInstruction = scanner.FindUnique("SequenceRoot", SequenceRootPattern);
+        // _sequenceRootAddress = AddressScanner.ResolveRipRelative(sequenceInstruction, 3, 7);
 
         _pollTask = Task.Run(PollAsync);
-        _log.Info($"Archipelago hub hotkey is {NormalizeKeyName(keyName)} (available after loading a save while the field controller is active).");
+        // _log.Info($"Archipelago hub hotkey is {NormalizeKeyName(keyName)} (available after loading a save while the field controller is active).");
+        _log.Info($"Archipelago hub hotkey is {NormalizeKeyName(keyName)} (available anywhere after loading a save).");
     }
 
     private async Task PollAsync()
@@ -67,12 +70,12 @@ internal sealed class HubMenuHotkey : IDisposable
 
     private void TryOpenHub()
     {
-        var fieldActive = IsFieldControllerActive();
-        if (!fieldActive && !_allowWhenFieldProbeFails())
-        {
-            _log.Info("Ignored hub hotkey while the field controller was inactive.");
-            return;
-        }
+        // var fieldActive = IsFieldControllerActive();
+        // if (!fieldActive && !_allowWhenFieldProbeFails())
+        // {
+            // _log.Info("Ignored hub hotkey while the field controller was inactive.");
+            // return;
+        // }
 
         if (!_tryBegin())
         {
@@ -84,32 +87,33 @@ internal sealed class HubMenuHotkey : IDisposable
         {
             // Procedure30 is the native root with Connection, Shop and Warps submenus.
             _hubFlow.Run(30);
-            _log.Info(fieldActive
-                ? "Opened the Archipelago hotkey menu."
-                : "Opened the Archipelago hotkey menu using the active-Palace fallback.");
+            // _log.Info(fieldActive
+                // ? "Opened the Archipelago hotkey menu."
+                // : "Opened the Archipelago hotkey menu using the active-Palace fallback.");
+            _log.Info("Opened the Archipelago hotkey menu.");
         }
         catch (Exception ex)
         {
             _cancelBegin();
             _log.Error($"Could not open the Archipelago hub from the hotkey: {ex.Message}");
-        }
-    }
+        // }
+    // }
 
-    internal bool IsFieldControllerActive()
-    {
-        try
-        {
-            var sequenceObject = Marshal.ReadIntPtr(_sequenceRootAddress);
-            if (sequenceObject == IntPtr.Zero) return false;
-            var sequenceInfo = Marshal.ReadIntPtr(sequenceObject + 0x48);
-            // Mirror the resolved executable helper exactly: it reads the first byte of this
-            // object and tests bit 0. The old code incorrectly read an int at +4 and compared
-            // it with a guessed enum value (3), rejecting both Palace and Mementos fields.
-            return sequenceInfo != IntPtr.Zero && (Marshal.ReadByte(sequenceInfo) & 1) != 0;
-        }
-        catch
-        {
-            return false;
+    // internal bool IsFieldControllerActive()
+    // {
+        // try
+        // {
+            // var sequenceObject = Marshal.ReadIntPtr(_sequenceRootAddress);
+            // if (sequenceObject == IntPtr.Zero) return false;
+            // var sequenceInfo = Marshal.ReadIntPtr(sequenceObject + 0x48);
+            // // Mirror the resolved executable helper exactly: it reads the first byte of this
+            // // object and tests bit 0. The old code incorrectly read an int at +4 and compared
+            // // it with a guessed enum value (3), rejecting both Palace and Mementos fields.
+            // return sequenceInfo != IntPtr.Zero && (Marshal.ReadByte(sequenceInfo) & 1) != 0;
+        // }
+        // catch
+        // {
+            // return false;
         }
     }
 
