@@ -53,6 +53,7 @@ internal sealed partial class ArchipelagoMod
 
     private string? GetConnectionMenuText(ushort item)
     {
+        if (GetPendingItemsMenuText(item) is { } pendingText) return pendingText;
         // Reserved UI-only IDs must never fall through to out-of-catalog vanilla key items,
         // even when the synthetic CMM bridge failed to initialize. No real inventory uses them.
         return item switch {

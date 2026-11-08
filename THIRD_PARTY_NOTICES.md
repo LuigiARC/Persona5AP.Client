@@ -21,5 +21,7 @@ its original notices and licenses.
   preserved in licenses/Archipelago-MIT.txt. The game-side client is independent
   of the Archipelago fork's Python implementation.
   https://github.com/ArchipelagoMW/Archipelago
+- **Secre-C, P5R-Shop-Editor**:
+  Royal item-name tables were found from [Secre-C's P5R Shop Editor](https://github.com/Secre-C/P5R-Shop-Editor), checked against local ITEM.TBL category sizes and native inventory functions.
 
 No original game archives, decompiled scripts, art, music, saves or client cache files are included.

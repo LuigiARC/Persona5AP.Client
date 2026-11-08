@@ -231,6 +231,33 @@ internal sealed class StateStore
         get { lock (_lock) return [.. _state.PendingTvBundleItemIds]; }
     }
 
+    public bool HasPendingInventoryRewards
+    {
+        get { lock (_lock) return _state.PendingTvBundleItemIds.Count > 0; }
+    }
+
+    public (long ItemId, int ContentIndex)? PendingInventoryReward
+    {
+        get
+        {
+            lock (_lock) return _state.PendingTvBundleItemIds.Count == 0 ? null :
+                (_state.PendingTvBundleItemIds[0], _state.PendingTvBundleContentIndex);
+        }
+    }
+
+    public void AdvanceInventoryReward(long itemId, int expectedContentIndex)
+    {
+        lock (_lock)
+        {
+            if (_state.PendingTvBundleItemIds.Count == 0 || _state.PendingTvBundleItemIds[0] != itemId ||
+                _state.PendingTvBundleContentIndex != expectedContentIndex)
+                throw new InvalidOperationException("Pending inventory reward changed during delivery.");
+            _state.PendingTvBundleContentIndex++;
+            _state.PendingTvBundleContentIndices[0] = _state.PendingTvBundleContentIndex;
+            SaveLocked();
+        }
+    }
+
     public int BootstrapPreparationVersion
     {
         get { lock (_lock) return _state.BootstrapPreparationVersion; }
@@ -268,6 +295,7 @@ internal sealed class StateStore
         {
             RequireNextReceivedItemIndex(nextReceivedItemIndex);
             _state.PendingTvBundleItemIds.Add(itemId);
+            _state.PendingTvBundleContentIndices.Add(0);
             _state.NextReceivedItemIndex = nextReceivedItemIndex;
             SaveLocked();
         }
@@ -281,8 +309,28 @@ internal sealed class StateStore
             if (index >= 0)
             {
                 _state.PendingTvBundleItemIds.RemoveAt(index);
+                _state.PendingTvBundleContentIndices.RemoveAt(index);
+                _state.PendingTvBundleContentIndex = _state.PendingTvBundleContentIndices.FirstOrDefault();
                 SaveLocked();
             }
+        }
+    }
+
+    public bool PrioritizePendingInventoryReward(int index, long expectedItemId)
+    {
+        lock (_lock)
+        {
+            if (index < 0 || index >= _state.PendingTvBundleItemIds.Count ||
+                _state.PendingTvBundleItemIds[index] != expectedItemId) return false;
+            if (index == 0) return true;
+            var cursor = _state.PendingTvBundleContentIndices[index];
+            _state.PendingTvBundleItemIds.RemoveAt(index);
+            _state.PendingTvBundleContentIndices.RemoveAt(index);
+            _state.PendingTvBundleItemIds.Insert(0, expectedItemId);
+            _state.PendingTvBundleContentIndices.Insert(0, cursor);
+            _state.PendingTvBundleContentIndex = cursor;
+            SaveLocked();
+            return true;
         }
     }
 
@@ -382,6 +430,14 @@ internal sealed class StateStore
                     if (loaded.MementosChestsOpenedByPath.Length != 9)
                         loaded.MementosChestsOpenedByPath = new int[9];
                     loaded.PendingTvBundleItemIds ??= [];
+                    loaded.PendingTvBundleContentIndices ??= [];
+                    if (loaded.PendingTvBundleContentIndices.Count != loaded.PendingTvBundleItemIds.Count)
+                    {
+                        // Older clients only persisted the head's partial-bundle cursor.
+                        loaded.PendingTvBundleContentIndices = Enumerable.Repeat(0, loaded.PendingTvBundleItemIds.Count).ToList();
+                        if (loaded.PendingTvBundleContentIndices.Count > 0)
+                            loaded.PendingTvBundleContentIndices[0] = loaded.PendingTvBundleContentIndex;
+                    }
                     loaded.PartyLevelCreditsAppliedByMember ??= [];
                     loaded.PartyLevelPendingByMember ??= [];
                     loaded.PartyLevelAchievedFloorByMember ??= [];

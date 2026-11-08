@@ -35,6 +35,8 @@ internal sealed class ConnectionKeyboard : IDisposable
     private readonly Action _backspace;
     private readonly Action _clear;
     private readonly Func<bool> _ownsMenu;
+    private readonly Log _log;
+    public event Action? GameplayInputRead;
     private readonly byte[] _keys = new byte[256];
     private readonly bool[] _previous = new bool[256];
     private readonly long[] _repeatAt = new long[256];
@@ -47,10 +49,11 @@ internal sealed class ConnectionKeyboard : IDisposable
     private const long FieldLockMask = 0xC00000000; // Native pad and movement locks, bits34/35.
 
     public ConnectionKeyboard(IReloadedHooks hooks, AddressScanner scanner,
-        Action<char> append, Action backspace, Action clear, Func<bool> ownsMenu)
+        Action<char> append, Action backspace, Action clear, Func<bool> ownsMenu, Log log)
     {
         _append = append; _backspace = backspace; _clear = clear;
         _ownsMenu = ownsMenu;
+        _log = log;
         // Verified native generic input1415F6980, not a global game-keyboard hook.
         var input = scanner.FindUnique("GenericSelectorInput",
             "40 57 48 81 EC A0 00 00 00 48 8B F9 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? 48 85 C0 74 15 48 8B 40 48");
@@ -102,9 +105,14 @@ internal sealed class ConnectionKeyboard : IDisposable
         Volatile.Write(ref _captureGameplay, 0);
     }
 
-    private ulong QueryAction(IntPtr query, int controller, ushort mask) =>
-        Volatile.Read(ref _captureGameplay) != 0 && _ownsMenu() ? 0UL :
+    private ulong QueryAction(IntPtr query, int controller, ushort mask)
+    {
+        var result = Volatile.Read(ref _captureGameplay) != 0 && _ownsMenu() ? 0UL :
             _actions.OriginalFunction(query, controller, mask);
+        try { GameplayInputRead?.Invoke(); }
+        catch (Exception ex) { _log.Error($"Automatic reward input callback deferred: {ex.Message}"); }
+        return result;
+    }
 
     private byte Input(IntPtr context)
     {
@@ -171,5 +179,5 @@ internal sealed class ConnectionKeyboard : IDisposable
         return 0; // Suppress native C/Space shortcuts while they are being typed.
     }
 
-    public void Dispose() { End(); _input.Disable(); _actions.Disable(); }
+    public void Dispose() { GameplayInputRead = null; End(); _input.Disable(); _actions.Disable(); }
 }

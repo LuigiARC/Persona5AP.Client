@@ -5,7 +5,7 @@
 Persona 5 Royal Archipelago client for Reloaded-II. This mod is *very much* in alpha.
 Use a disposable save and keep a backup. 
 
-The F9 connection, shop and warp menu should work after the casino intro.
+The F9 connection, shop, warp and Pending Items menu should work with the provided save file!
 
 The separate APWorld is maintained under `worlds/p5r-luigiarc` in the companion Archipelago
 fork. Install its `p5r-luigiarc.apworld` release to generate/host games.

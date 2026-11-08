@@ -2,6 +2,7 @@ using System.Reflection;
 using System.Security.Cryptography;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Text;
 
 namespace P5RArchipelago;
 
@@ -11,15 +12,20 @@ internal sealed class TvBundleCatalog
     private readonly Dictionary<long, TvBundle> _byItemId;
 
     public IReadOnlyList<TvBundle> Bundles { get; }
+    public IReadOnlyList<TvBundle> NativeItems { get; }
     public int Version { get; }
     public string Hash { get; }
+    public string StateIdentityHash { get; }
 
-    private TvBundleCatalog(int version, string hash, IReadOnlyList<TvBundle> bundles)
+    private TvBundleCatalog(int version, string hash, string stateIdentityHash, IReadOnlyList<TvBundle> bundles,
+        IReadOnlyList<TvBundle> nativeItems)
     {
         Version = version;
         Hash = hash;
+        StateIdentityHash = stateIdentityHash;
         Bundles = bundles;
-        _byItemId = bundles.ToDictionary(bundle => bundle.ItemId);
+        NativeItems = nativeItems;
+        _byItemId = bundles.Concat(nativeItems).ToDictionary(bundle => bundle.ItemId);
     }
 
     public static TvBundleCatalog Load()
@@ -32,13 +38,24 @@ internal sealed class TvBundleCatalog
         var document = JsonSerializer.Deserialize<TvBundleDocument>(bytes)
             ?? throw new InvalidDataException("The embedded TV bundle catalog is empty.");
         if (document.Bundles.Count == 0 ||
-            document.Bundles.Select(bundle => bundle.ItemId).Distinct().Count() != document.Bundles.Count)
-            throw new InvalidDataException("The embedded TV bundle catalog is empty or contains duplicate item IDs.");
+            document.Bundles.Concat(document.NativeItems).Select(bundle => bundle.ItemId).Distinct().Count()
+                != document.Bundles.Count + document.NativeItems.Count ||
+            document.NativeItems.Any(item => item.Contents.Count != 1 ||
+                item.Contents[0].Count is < 1 or > 99))
+            throw new InvalidDataException("The embedded inventory catalog is empty, contains duplicate item IDs, or has invalid starting-item contents.");
+        // This correction changes labels only. Retain the previous name's exact
+        // fingerprint for existing seed compatibility and durable receipt profiles.
+        var legacyBytes = Encoding.UTF8.GetBytes(Encoding.UTF8.GetString(bytes)
+            .Replace("\"name\": \"Perma-Pick\"", "\"name\": \"Eternal Lockpick\"")
+            .Replace("\"native_name\": \"Perma-Pick\"", "\"native_name\": \"Eternal Lockpick\""));
         return new TvBundleCatalog(document.CatalogVersion,
-            Convert.ToHexString(SHA256.HashData(bytes)).ToLowerInvariant(), document.Bundles);
+            Convert.ToHexString(SHA256.HashData(bytes)).ToLowerInvariant(),
+            Convert.ToHexString(SHA256.HashData(legacyBytes)).ToLowerInvariant(), document.Bundles, document.NativeItems);
     }
 
     public bool TryGet(long itemId, out TvBundle bundle) => _byItemId.TryGetValue(itemId, out bundle!);
+    public bool AcceptsHash(string? hash) => string.Equals(hash, Hash, StringComparison.OrdinalIgnoreCase) ||
+        string.Equals(hash, StateIdentityHash, StringComparison.OrdinalIgnoreCase);
 }
 
 internal sealed class TvBundleDocument
@@ -48,6 +65,9 @@ internal sealed class TvBundleDocument
 
     [JsonPropertyName("bundles")]
     public List<TvBundle> Bundles { get; set; } = [];
+
+    [JsonPropertyName("native_items")]
+    public List<TvBundle> NativeItems { get; set; } = [];
 }
 
 internal sealed class TvBundle

@@ -29,6 +29,8 @@ internal sealed class ClientState
     public int[] MementosChestsOpenedByPath { get; set; } = new int[9];
 
     public List<long> PendingTvBundleItemIds { get; set; } = [];
+    public int PendingTvBundleContentIndex { get; set; }
+    public List<int> PendingTvBundleContentIndices { get; set; } = [];
 
     public int BootstrapPreparationVersion { get; set; }
 

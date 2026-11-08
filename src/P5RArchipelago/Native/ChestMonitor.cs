@@ -332,12 +332,17 @@ internal sealed unsafe class ChestMonitor : IDisposable
         _setItemNumHook.OriginalFunction(itemId, newCount, shouldUpdateRecent);
     }
 
-    public void GrantItem(ushort itemId, byte count)
+    public bool GrantItem(ushort itemId, byte count)
     {
         var current = _getItemNumHook.OriginalFunction(itemId);
         var next = (byte)Math.Min(99, current + count);
         _setItemNumHook.OriginalFunction(itemId, next, 1);
-        _log.Info($"Granted P5R item 0x{itemId:X4} x{next - current} ({current} -> {next}).");
+        var actual = _getItemNumHook.OriginalFunction(itemId);
+        if (actual != next)
+            _log.Error($"P5R item 0x{itemId:X4} grant failed: requested {next}, native readback {actual} (was {current}).");
+        else
+            _log.Info($"Granted P5R item 0x{itemId:X4} x{actual - current} ({current} -> {actual}; native readback verified).");
+        return actual == next;
     }
 
     private void ClearRewardName()

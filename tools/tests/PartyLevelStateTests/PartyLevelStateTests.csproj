@@ -6,6 +6,12 @@
   <ItemGroup>
     <Compile Include="../../../src/P5RArchipelago/StateStore.cs" Link="StateStore.cs" />
     <Compile Include="../../../src/P5RArchipelago/ClientState.cs" Link="ClientState.cs" />
+    <Compile Include="../../../src/P5RArchipelago/TvBundleCatalog.cs" Link="TvBundleCatalog.cs" />
+    <Compile Include="../../../src/P5RArchipelago/AutomaticRewardDispatcher.cs" Link="AutomaticRewardDispatcher.cs" />
+    <Compile Include="../../../src/P5RArchipelago/Native/FieldRewardSafety.cs" Link="FieldRewardSafety.cs" />
+    <Compile Include="../../../src/P5RArchipelago/InventoryRewardReceiver.cs" Link="InventoryRewardReceiver.cs" />
+    <Compile Include="../../../src/P5RArchipelago/GameAssets/BinaryDelta.cs" Link="BinaryDelta.cs" />
+    <EmbeddedResource Include="../../../data/tv_bundles.json" LogicalName="P5RArchipelago.tv_bundles.json" />
     <Compile Include="../../../src/P5RArchipelago/ChestCatalog.cs" Link="ChestCatalog.cs" />
     <EmbeddedResource Include="../../../data/chests.json" LogicalName="P5RArchipelago.chests.json" />
     <Compile Include="../../../src/P5RArchipelago/Native/DeathLinkDamageReceiver.cs" Link="DeathLinkDamageReceiver.cs" />

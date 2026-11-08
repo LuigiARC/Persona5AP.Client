@@ -101,6 +101,8 @@ internal sealed class ApClient : IDisposable
     private bool _deathLinkEnabled;
     private int _deathLinkDamagePercent;
     private int _pendingDeathLinks;
+    private long _rewardVersion;
+    public long RewardVersion => Interlocked.Read(ref _rewardVersion);
     private bool _partyLevelItemsEnabled;
     public ApClient(Config config, StateStore state, ChestCatalog catalog, PalaceCatalog palaces,
         ConfidantAbilityCatalog confidants, PersonaCatalog personas, TvBundleCatalog tvBundles, Log log)
@@ -155,6 +157,10 @@ internal sealed class ApClient : IDisposable
     public long[] PendingTvBundleItemIds => _state.PendingTvBundleItemIds;
     public int BootstrapPreparationVersion => _state.BootstrapPreparationVersion;
     public void AcknowledgeTvBundle(long itemId) => _state.RemovePendingTvBundle(itemId);
+    public bool HasPendingInventoryRewards => _state.HasPendingInventoryRewards;
+    public (long ItemId, int ContentIndex)? PendingInventoryReward => _state.PendingInventoryReward;
+    public void AdvanceInventoryReward(long itemId, int contentIndex) => _state.AdvanceInventoryReward(itemId, contentIndex);
+    public bool PrioritizePendingInventoryReward(int index, long itemId) => _state.PrioritizePendingInventoryReward(index, itemId);
     public void MarkBootstrapPrepared(int version) => _state.MarkBootstrapPrepared(version);
     public bool CompendiumSanity => _compendiumSanity;
     public (int Major, uint? SaveSlot) ActiveApPalace => _state.ActiveApPalace;
@@ -445,6 +451,8 @@ internal sealed class ApClient : IDisposable
 
         foreach (var pair in expected)
         {
+            if (pair.Key == "tv_bundle_catalog_hash" && login.SlotData.TryGetValue(pair.Key, out var inventoryHash) &&
+                _tvBundles.AcceptsHash(Convert.ToString(inventoryHash))) continue;
             if (!login.SlotData.TryGetValue(pair.Key, out var rawValue) ||
                 !string.Equals(Convert.ToString(rawValue), pair.Value, StringComparison.OrdinalIgnoreCase))
             {
@@ -553,6 +561,7 @@ internal sealed class ApClient : IDisposable
             _deathLinkService.DisableDeathLink();
 
         _state.BindSeed(_session.RoomState.Seed);
+        Interlocked.Increment(ref _rewardVersion);
 
         _log.Info($"Slot options: compatible protocol {clientVersion}, money-priced Confidant shop, {_slotMementosChestsPerPath} chest(s) per Mementos Path, Compendium Sanity: {_compendiumSanity}, progressive palace access: {_progressivePalaceAccess}, DeathLink: {_deathLinkEnabled} ({_deathLinkDamagePercent}% received damage).");
         return true;
@@ -675,12 +684,12 @@ internal sealed class ApClient : IDisposable
                 else if (PartyRecruitItems.TryGetValue(item.ItemId, out var partyMember))
                 {
                     _state.RecordPartyRecruitItem(nextIndex, item.ItemId);
-                    _log.Info($"Recruit {partyMember} received; roster flags will reconcile at the Mementos hub.");
+                    _log.Info($"Recruit {partyMember} received; roster will reconcile on the next safe gameplay update.");
                 }
                 else if (_partyLevelItemsEnabled && PartyLevelItems.TryGetValue(item.ItemId, out var levels))
                 {
                     var total = _state.RecordPartyLevelItem(nextIndex, levels);
-                    _log.Info($"Party Level Up +{levels} received ({total} shared levels total); application will reconcile at the Mementos hub.");
+                    _log.Info($"Party Level Up +{levels} received ({total} shared levels total); queued for a safe gameplay update.");
                 }
                 else if (_palaces.TryGetByMergedAccessItemId(item.ItemId, out var mergedPalace))
                 {
@@ -690,13 +699,14 @@ internal sealed class ApClient : IDisposable
                 else if (_tvBundles.TryGet(item.ItemId, out var bundle))
                 {
                     _state.RecordPendingTvBundle(nextIndex, item.ItemId);
-                    _log.Info($"{bundle.Name} queued; its inventory contents will be applied at the Mementos hub.");
+                    _log.Info($"{bundle.Name} queued for the next safe gameplay update.");
                 }
                 else
                 {
                     _state.RecordReceivedItem(nextIndex);
                 }
 
+                Interlocked.Increment(ref _rewardVersion);
                 index = nextIndex;
             }
 

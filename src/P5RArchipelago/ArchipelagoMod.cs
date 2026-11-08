@@ -36,6 +36,8 @@ internal sealed partial class ArchipelagoMod : IDisposable
     // Read-only, save-slot-scoped guard for Bank reception script overrides.
     private const uint ActiveApBankFeatureId = 900171;
     private const uint ActiveApLaboratoryFeatureId = 900172;
+    private const uint BeginAutomaticRewardsFeatureId = 900200;
+    private const uint CompleteAutomaticRewardsFeatureId = 900201;
     // Encodes member * 100 + current level and returns an absolute level target. Keeping the
     // current level in the query lets the durable state machine confirm interrupted writes.
     private const uint PartyLevelTargetFeatureIdBase = 920000;
@@ -50,6 +52,12 @@ internal sealed partial class ArchipelagoMod : IDisposable
     private readonly ConfidantAbilityMonitor? _confidantMonitor = null;
     private readonly PersonaCatalog _personas;
     private readonly TvBundleCatalog _tvBundles;
+    private readonly InventoryRewardReceiver _inventoryRewards;
+    private readonly AutomaticRewardDispatcher? _automaticRewards;
+    private readonly GameplayReadyProbe? _gameplayReady;
+    private readonly Timer? _rewardDiagnostics;
+    private long _lastRewardInputTick;
+    private long _saveGeneration;
     private readonly PersonaRegistrationMonitor? _personaMonitor = null;
     private readonly MementosTraverseMonitor? _mementosTraverseMonitor = null;
     private readonly MementosPathMonitor? _mementosPathMonitor = null;
@@ -98,7 +106,7 @@ internal sealed partial class ArchipelagoMod : IDisposable
         _personas = PersonaCatalog.Load();
         _tvBundles = TvBundleCatalog.Load();
         _reconcileOpenedChests = config.ReconcileOpenedChests;
-        var catalogIdentity = $"{_catalog.Hash}:{_palaces.Hash}:{_confidants.Hash}:{_personas.Hash}:{_tvBundles.Hash}";
+        var catalogIdentity = $"{_catalog.Hash}:{_palaces.Hash}:{_confidants.Hash}:{_personas.Hash}:{_tvBundles.StateIdentityHash}";
         _configDirectory = configDirectory;
         _runtimeConfig = config;
         _catalogIdentity = catalogIdentity;
@@ -115,12 +123,16 @@ internal sealed partial class ArchipelagoMod : IDisposable
             config.LogAllChestFlags, log);
         _chestMonitor.ChestOpenedCompleted += OnChestOpenedCompleted;
         _chestMonitor.ConnectionMenuText = GetConnectionMenuText;
+        _inventoryRewards = new InventoryRewardReceiver(_tvBundles,
+            () => _apClient.PendingInventoryReward,
+            (item, index) => _apClient.AdvanceInventoryReward(item, index),
+            item => _apClient.AcknowledgeTvBundle(item), _chestMonitor.GrantItem, log);
         try
         {
             _connectionKeyboard = new ConnectionKeyboard(hooks, scanner,
                 character => _connectionEditor.Append(ConnectionFieldEditor.Alphabet.IndexOf(character)),
                 _connectionEditor.Backspace, _connectionEditor.Clear,
-                () => Volatile.Read(ref _connectionMenuActive) != 0 && Volatile.Read(ref _hubMenuOpen) != 0);
+                () => Volatile.Read(ref _connectionMenuActive) != 0 && Volatile.Read(ref _hubMenuOpen) != 0, log);
         }
         catch (Exception ex)
         {
@@ -152,13 +164,34 @@ internal sealed partial class ArchipelagoMod : IDisposable
             log.Error($"Persona 5 AP hub runner was disabled safely: {ex.Message}");
         }
 
+        if (_hubFlowRunner is not null && _connectionKeyboard is not null)
+        {
+            try
+            {
+                _gameplayReady = new GameplayReadyProbe(hooks, scanner);
+                _automaticRewards = new AutomaticRewardDispatcher(CurrentRewardStamp, CanApplyAutomaticRewards,
+                    () => _apClient.HasPendingInventoryRewards, () => _hubFlowRunner.Run(34), log);
+                _connectionKeyboard.GameplayInputRead += OnRewardGameplayInput;
+                log.Info("AP inventory, recruits and levels will reconcile automatically during unlocked field gameplay.");
+            }
+            catch (Exception ex)
+            {
+                log.Error($"Automatic AP rewards unavailable; hub delivery retained: {ex.Message}");
+            }
+        }
+
+        // Watchdog reads managed state only; native reads/grants remain on the game thread.
+        _rewardDiagnostics = new Timer(_ => LogPendingRewardDiagnostics(), null, 5000, 5000);
+        log.Info("Pending inventory rewards can be claimed through F9 > Pending Items (individual rewards or Claim All).");
+
         if (_hubFlowRunner is not null && !string.IsNullOrWhiteSpace(config.HubMenuHotkey))
         {
             try
             {
                 // _hubMenuHotkey = new HubMenuHotkey(scanner, _hubFlowRunner, config.HubMenuHotkey,
                 _hubMenuHotkey = new HubMenuHotkey(_hubFlowRunner, config.HubMenuHotkey,
-                    () => _loadedSaveSlot.HasValue && Interlocked.CompareExchange(ref _hubMenuOpen, 1, 0) == 0,
+                    () => _loadedSaveSlot.HasValue && _automaticRewards?.Busy != true &&
+                        Interlocked.CompareExchange(ref _hubMenuOpen, 1, 0) == 0,
                     () => Interlocked.Exchange(ref _hubMenuOpen, 0),
                     // () => GetActiveApPalace() is not null ||
                         // (_mementosPathMonitor?.CachedPath ?? Volatile.Read(ref _selectedMementosPath))
@@ -311,6 +344,7 @@ internal sealed partial class ArchipelagoMod : IDisposable
 
     private void OnSaveLoaded(uint fileIndex)
     {
+        Interlocked.Increment(ref _saveGeneration);
         _chestMonitor.SetShopDescriptionsEnabled(false);
         Interlocked.Exchange(ref _confidantShopActive, 0);
         _connectionKeyboard?.End();
@@ -328,6 +362,45 @@ internal sealed partial class ArchipelagoMod : IDisposable
     }
 
     private static bool IsBootstrapSave(uint fileIndex) => fileIndex is 13 or 16;
+
+    private RewardStamp? CurrentRewardStamp()
+    {
+        var client = _apClient;
+        return client.ConnectionReady && _loadedSaveSlot.HasValue
+            ? new RewardStamp(client, Interlocked.Read(ref _saveGeneration), client.RewardVersion) : null;
+    }
+
+    private bool CanApplyAutomaticRewards() =>
+        _loadedSaveSlot.HasValue && _apClient.ConnectionReady &&
+        Volatile.Read(ref _connectionBusy) == 0 && Volatile.Read(ref _hubMenuOpen) == 0 &&
+        Volatile.Read(ref _confidantShopActive) == 0 && _inventoryRewards.CanApply &&
+        _gameplayReady?.IsReady() == true;
+
+    private void OnRewardGameplayInput()
+    {
+        Volatile.Write(ref _lastRewardInputTick, Environment.TickCount64);
+        _automaticRewards?.Poll();
+    }
+
+    private void LogPendingRewardDiagnostics()
+    {
+        try
+        {
+            var client = _apClient;
+            if (!client.HasPendingInventoryRewards) return;
+            var lastInput = Volatile.Read(ref _lastRewardInputTick);
+            var pending = client.PendingInventoryReward;
+            _log.Info($"[RewardDebug] Pending={client.PendingTvBundleItemIds.Length}, " +
+                $"head=0x{pending?.ItemId:X}, contentIndex={pending?.ContentIndex}, " +
+                $"loadedSlot={_loadedSaveSlot?.ToString() ?? "none"}, connected={client.ConnectionReady}, " +
+                $"connectionBusy={Volatile.Read(ref _connectionBusy)}, hubOpen={Volatile.Read(ref _hubMenuOpen)}, " +
+                $"shopActive={Volatile.Read(ref _confidantShopActive)}, grantRetryReady={_inventoryRewards.CanApply}, " +
+                $"inputAgeMs={(lastInput == 0 ? "never" : (Environment.TickCount64 - lastInput).ToString())}; " +
+                $"dispatcher: {_automaticRewards?.Diagnostic ?? "unavailable"}; " +
+                $"native cached: {_gameplayReady?.Diagnostic ?? "probe unavailable"}.");
+        }
+        catch (Exception ex) { _log.Error($"[RewardDebug] Diagnostic sampling failed: {ex.Message}"); }
+    }
 
     private bool HasCallingCardAccess(PalaceLocation palace) =>
         _apClient.ProgressivePalaceAccess
@@ -361,7 +434,15 @@ internal sealed partial class ArchipelagoMod : IDisposable
 
     private long? SyntheticFeatureOverride(uint featureId)
     {
+        if (featureId == BeginAutomaticRewardsFeatureId)
+            return _automaticRewards?.TryBegin() == true ? 1 : 0;
+        if (featureId == CompleteAutomaticRewardsFeatureId)
+        {
+            _automaticRewards?.Complete();
+            return 1;
+        }
         if (ConnectionMenuFeature(featureId) is { } connectionResult) return connectionResult;
+        if (PendingItemsMenuFeature(featureId) is { } pendingResult) return pendingResult;
         if (featureId == ActiveApLaboratoryFeatureId)
             return GetActiveApPalace()?.Major == 162 ? 1 : 0;
 
@@ -514,22 +595,9 @@ internal sealed partial class ArchipelagoMod : IDisposable
 
         if (featureId == ApplyPendingTvBundlesFeatureId)
         {
-            var applied = 0;
-            foreach (var itemId in _apClient.PendingTvBundleItemIds)
-            {
-                if (!_tvBundles.TryGet(itemId, out var bundle))
-                {
-                    _log.Error($"Pending TV bundle 0x{itemId:X} is absent from the embedded catalog; leaving it queued.");
-                    continue;
-                }
-
-                foreach (var content in bundle.Contents)
-                    _chestMonitor.GrantItem(content.ItemId, content.Count);
-                _apClient.AcknowledgeTvBundle(itemId);
-                applied++;
-                _log.Info($"Applied AP filler bundle '{bundle.Name}' at the Mementos hub.");
-            }
-            return applied;
+            if (_apClient.HasPendingInventoryRewards)
+                _log.Info($"[RewardDebug] Inventory callback 900130 reached (automatic={_automaticRewards?.Executing == true}).");
+            return _inventoryRewards.Apply(_automaticRewards?.Executing == true ? 4 : int.MaxValue);
         }
 
         if (featureId == BaseSave13NeedsPreparationFeatureId)
@@ -793,6 +861,8 @@ internal sealed partial class ArchipelagoMod : IDisposable
 
     public void Dispose()
     {
+        _rewardDiagnostics?.Dispose();
+        _automaticRewards?.Dispose();
         _chestMonitor.ChestOpenedCompleted -= OnChestOpenedCompleted;
         _chestMonitor.Dispose();
         if (_palaceClearMonitor is not null)
