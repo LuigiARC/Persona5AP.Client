@@ -1,6 +1,6 @@
 {
   "game": "Persona 5 Royal (luigiarc)",
-  "apworld_version": "0.5.0",
+  "apworld_version": "0.2.0",
   "source_path": "worlds/p5r-luigiarc",
   "source_modules": {
     "chests.json": "locations.py",
