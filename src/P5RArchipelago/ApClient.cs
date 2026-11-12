@@ -92,6 +92,9 @@ internal sealed class ApClient : IDisposable
     public string ConnectionStatus { get; private set; } = "Disconnected";
 
     private bool _worldCompatible;
+    private RewardMultipliers _rewardMultipliers = RewardMultipliers.Vanilla;
+    public RewardMultipliers Multipliers => Volatile.Read(ref _worldCompatible)
+        ? Volatile.Read(ref _rewardMultipliers) : RewardMultipliers.Vanilla;
     private int _requiredPalaceClearTokens;
     private int _requiredPalaceGoalCount;
     private int _slotMementosChestsPerPath;
@@ -389,9 +392,9 @@ internal sealed class ApClient : IDisposable
         // protocols keep their world-specific rules; reserved location IDs do not shift.
         if (!login.SlotData.TryGetValue("client_version", out var clientVersionRaw) ||
             !int.TryParse(Convert.ToString(clientVersionRaw), out var clientVersion) ||
-            clientVersion is not (8 or 9 or 10 or 11 or 12))
+            clientVersion is not (8 or 9 or 10 or 11 or 12 or 13))
         {
-            _log.Error($"Slot-data mismatch for 'client_version': expected compatible protocol 8–12, got '{clientVersionRaw ?? "<missing>"}'.");
+            _log.Error($"Slot-data mismatch for 'client_version': expected compatible protocol 8–13, got '{clientVersionRaw ?? "<missing>"}'.");
             return false;
         }
 
@@ -560,7 +563,15 @@ internal sealed class ApClient : IDisposable
         else
             _deathLinkService.DisableDeathLink();
 
+        if (!RewardMultipliers.TryParse(login.SlotData, clientVersion, out var multipliers))
+        {
+            _log.Error("Reward multiplier slot data is missing or invalid (expected integers 1–10).");
+            return false;
+        }
+
         _state.BindSeed(_session.RoomState.Seed);
+        Volatile.Write(ref _rewardMultipliers, multipliers);
+        _log.Info($"Game-wide battle rewards: EXP x{multipliers.Xp}, money x{multipliers.Money}, item quantities x{multipliers.Items}.");
         Interlocked.Increment(ref _rewardVersion);
 
         _log.Info($"Slot options: compatible protocol {clientVersion}, money-priced Confidant shop, {_slotMementosChestsPerPath} chest(s) per Mementos Path, Compendium Sanity: {_compendiumSanity}, progressive palace access: {_progressivePalaceAccess}, DeathLink: {_deathLinkEnabled} ({_deathLinkDamagePercent}% received damage).");

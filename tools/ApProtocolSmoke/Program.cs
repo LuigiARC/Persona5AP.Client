@@ -38,7 +38,10 @@ if (!login.Successful)
 }
 
 var successful = (LoginSuccessful)login;
-if (Convert.ToInt32(successful.SlotData["client_version"]) != 12 ||
+if (Convert.ToInt32(successful.SlotData["client_version"]) != 13 ||
+    Convert.ToInt32(successful.SlotData["xp_multiplier"]) != 1 ||
+    Convert.ToInt32(successful.SlotData["money_multiplier"]) != 1 ||
+    Convert.ToInt32(successful.SlotData["item_multiplier"]) != 1 ||
     Convert.ToInt32(successful.SlotData["chest_count"]) != 155 ||
     Convert.ToInt32(successful.SlotData["palace_clear_count"]) != 8 ||
     Convert.ToInt32(successful.SlotData["calling_card_count"]) != 8 ||

@@ -69,6 +69,7 @@ internal sealed partial class ArchipelagoMod : IDisposable
     private readonly DeathLinkDamageReceiver? _deathLinkDamageReceiver = null;
     private readonly PartyHpManipulator? _partyHpManipulator = null;
     private readonly JokerLevelManipulator? _jokerLevelManipulator = null;
+    private readonly RewardMultiplierHook _rewardMultiplierHook;
     private readonly PartyLevelUpMonitor? _partyLevelUpMonitor = null;
     private readonly BattleResultMonitor? _battleResultMonitor = null;
     private readonly PalaceCalendarReturnMonitor? _palaceCalendarReturnMonitor = null;
@@ -141,6 +142,7 @@ internal sealed partial class ArchipelagoMod : IDisposable
         }
 
         _bitFlags = new BitFlagReader(hooks, scanner);
+        _rewardMultiplierHook = new RewardMultiplierHook(hooks, scanner, () => _apClient.Multipliers, log);
         try
         {
             _messageWindowGuard = new MessageWindowGuard(hooks, scanner,
@@ -867,6 +869,7 @@ internal sealed partial class ArchipelagoMod : IDisposable
         _rewardDiagnostics?.Dispose();
         _automaticRewards?.Dispose();
         _partyLevelUpMonitor?.Dispose();
+        _rewardMultiplierHook.Dispose();
         _chestMonitor.ChestOpenedCompleted -= OnChestOpenedCompleted;
         _chestMonitor.Dispose();
         if (_palaceClearMonitor is not null)
