@@ -36,7 +36,7 @@ internal sealed class ConnectionKeyboard : IDisposable
     private readonly Action _clear;
     private readonly Func<bool> _ownsMenu;
     private readonly Log _log;
-    public event Action? GameplayInputRead;
+    public event Action<bool>? GameplayInputRead;
     private readonly byte[] _keys = new byte[256];
     private readonly bool[] _previous = new bool[256];
     private readonly long[] _repeatAt = new long[256];
@@ -109,7 +109,7 @@ internal sealed class ConnectionKeyboard : IDisposable
     {
         var result = Volatile.Read(ref _captureGameplay) != 0 && _ownsMenu() ? 0UL :
             _actions.OriginalFunction(query, controller, mask);
-        try { GameplayInputRead?.Invoke(); }
+        try { GameplayInputRead?.Invoke(result != 0); }
         catch (Exception ex) { _log.Error($"Automatic reward input callback deferred: {ex.Message}"); }
         return result;
     }

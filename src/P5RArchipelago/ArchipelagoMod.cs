@@ -381,9 +381,10 @@ internal sealed partial class ArchipelagoMod : IDisposable
         Volatile.Read(ref _confidantShopActive) == 0 && _inventoryRewards.CanApply &&
         _gameplayReady?.IsReady() == true;
 
-    private void OnRewardGameplayInput()
+    private void OnRewardGameplayInput(bool activeInput)
     {
         Volatile.Write(ref _lastRewardInputTick, Environment.TickCount64);
+        _automaticRewards?.ObserveInput(activeInput);
         _automaticRewards?.Poll();
     }
 

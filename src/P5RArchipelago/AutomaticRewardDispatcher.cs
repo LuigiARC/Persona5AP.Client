@@ -14,6 +14,11 @@ internal sealed class AutomaticRewardDispatcher : IDisposable
     private readonly object _gate = new();
     private RewardStamp? _queued, _executing, _completed;
     private long _queuedAt, _executingAt, _retryAfter, _completedAt;
+    // Menu-opening input is observed before the native menu owner/locks settle.
+    // Require a quiet, continuously available field before enqueue AND begin.
+    private const int InputSettleMilliseconds = 250;
+    private long _inputQuietUntil;
+    private long? _readySince;
     private bool _disposed;
     private bool _traceJob;
 
@@ -52,12 +57,34 @@ internal sealed class AutomaticRewardDispatcher : IDisposable
     }
     public bool Executing { get { lock (_gate) return _executing.HasValue; } }
 
+    public void ObserveInput(bool active)
+    {
+        if (!active) return;
+        lock (_gate)
+        {
+            _inputQuietUntil = _now() + InputSettleMilliseconds;
+            _readySince = null;
+        }
+    }
+
+    private bool CanStart()
+    {
+        var now = _now();
+        if (!_mayApply())
+        {
+            _readySince = null;
+            return false;
+        }
+        _readySince ??= now;
+        return now >= _inputQuietUntil && now - _readySince.Value >= InputSettleMilliseconds;
+    }
+
     public void Poll()
     {
         lock (_gate)
         {
             ExpireCanceledJobs();
-            if (_disposed || _executing.HasValue || !_mayApply() || _stamp() is not { } stamp) return;
+            if (_disposed || _executing.HasValue || !CanStart() || _stamp() is not { } stamp) return;
             var now = _now();
             if (now < _retryAfter) return;
             if (_queued is { } queued && SameSession(queued, stamp) && now - _queuedAt < 2000) return;
@@ -84,11 +111,12 @@ internal sealed class AutomaticRewardDispatcher : IDisposable
         {
             if (_disposed || _executing.HasValue || _queued is not { } queued) return false;
             _queued = null;
-            if (!_mayApply() || _stamp() is not { } stamp || !SameSession(queued, stamp))
+            if (!CanStart() || _stamp() is not { } stamp || !SameSession(queued, stamp))
             {
                 if (_traceJob) _log.Info("[RewardDebug] Flow procedure 34 reached begin callback, but safety/session check rejected it.");
                 return false;
             }
+            _readySince = null;
             _executing = queued;
             _executingAt = _now();
             if (_traceJob) _log.Info("[RewardDebug] Flow procedure 34 began; inventory callback 900130 should follow.");

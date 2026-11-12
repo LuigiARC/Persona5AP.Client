@@ -30,7 +30,7 @@ internal sealed partial class ArchipelagoMod
             _pendingItemsPage = pending.Skip(_pendingItemsOffset).Take(PendingItemsPageSize).ToArray();
             _pendingItemsNames = _pendingItemsPage.Select(item =>
                 _tvBundles.TryGet(item, out var reward) ? reward.Name : $"Unknown reward 0x{item:X}").ToArray();
-            _pendingItemsStatus = pending.Length == 0 ? "No pending items." :
+            _pendingItemsStatus = pending.Length == 0 ? "No pending inventory items." :
                 $"{pending.Length} pending - page {_pendingItemsOffset / PendingItemsPageSize + 1}/{(pending.Length + PendingItemsPageSize - 1) / PendingItemsPageSize}";
             if (_pendingItemsNotice.Length > 0) _pendingItemsStatus += " - " + _pendingItemsNotice;
             return pending.Length;
@@ -38,9 +38,34 @@ internal sealed partial class ArchipelagoMod
         if (id == 900211) { _pendingItemsOffset += PendingItemsPageSize; return 1; }
         if (id == 900212) { _pendingItemsOffset = Math.Max(0, _pendingItemsOffset - PendingItemsPageSize); return 1; }
         if (id == 900213) { _pendingItemsOffset = 0; _pendingItemsNotice = ""; return 1; }
-        if (id != 900214 && id is not (>= 900220 and < 900226)) return null;
+        if (id is not (900214 or 900215 or 900216) && id is not (>= 900220 and < 900226)) return null;
         if (!_loadedSaveSlot.HasValue || Volatile.Read(ref _hubMenuOpen) == 0 ||
             Volatile.Read(ref _connectionBusy) != 0) return 0;
+        if (id == 900215)
+        {
+            if (!_apClient.ConnectionReady)
+            {
+                _pendingItemsNotice = "Connect before applying party levels";
+                return 0;
+            }
+            if (_automaticRewards?.Executing == true)
+            {
+                _pendingItemsNotice = "Rewards are already being applied";
+                return 0;
+            }
+            // The BF closes its selector and ends its field event before calling
+            // this guard, then invokes the normal resumable party-level helper.
+            // Credits are acknowledged only by that helper's native level readback.
+            _pendingItemsNotice = "";
+            _log.Info("Pending Items: manually applying earned party level rewards.");
+            return 1;
+        }
+        if (id == 900216)
+        {
+            _pendingItemsNotice = "Party levels checked";
+            _log.Info("Pending Items: manual party level reconciliation finished.");
+            return 1;
+        }
         if (id == 900214)
         {
             var claimed = _inventoryRewards.Apply(int.MaxValue);
