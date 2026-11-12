@@ -2,7 +2,7 @@ namespace P5RArchipelago;
 
 internal readonly record struct RewardStamp(object Source, long SaveGeneration, long Version);
 
-/// <summary>Enqueues one silent game-flow job from native gameplay input, never from the socket thread.</summary>
+/// <summary>Enqueues one game-flow job from native gameplay input, never from the socket thread.</summary>
 internal sealed class AutomaticRewardDispatcher : IDisposable
 {
     private readonly Func<RewardStamp?> _stamp;
@@ -93,6 +93,17 @@ internal sealed class AutomaticRewardDispatcher : IDisposable
             _executingAt = _now();
             if (_traceJob) _log.Info("[RewardDebug] Flow procedure 34 began; inventory callback 900130 should follow.");
             return true;
+        }
+    }
+
+    // Called on each native START_PC_LEVEL_UP resume while it waits for the UI.
+    // A canceled flow stops sending heartbeats and retains the ordinary timeout.
+    public void KeepAlive()
+    {
+        lock (_gate)
+        {
+            if (!_disposed && _executing.HasValue)
+                _executingAt = _now();
         }
     }
 

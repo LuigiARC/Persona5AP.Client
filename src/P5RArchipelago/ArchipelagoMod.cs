@@ -69,6 +69,7 @@ internal sealed partial class ArchipelagoMod : IDisposable
     private readonly DeathLinkDamageReceiver? _deathLinkDamageReceiver = null;
     private readonly PartyHpManipulator? _partyHpManipulator = null;
     private readonly JokerLevelManipulator? _jokerLevelManipulator = null;
+    private readonly PartyLevelUpMonitor? _partyLevelUpMonitor = null;
     private readonly BattleResultMonitor? _battleResultMonitor = null;
     private readonly PalaceCalendarReturnMonitor? _palaceCalendarReturnMonitor = null;
     private readonly bool _reconcileOpenedChests;
@@ -169,6 +170,8 @@ internal sealed partial class ArchipelagoMod : IDisposable
             try
             {
                 _gameplayReady = new GameplayReadyProbe(hooks, scanner);
+                _partyLevelUpMonitor = new PartyLevelUpMonitor(hooks, scanner,
+                    () => _automaticRewards?.KeepAlive(), log);
                 _automaticRewards = new AutomaticRewardDispatcher(CurrentRewardStamp, CanApplyAutomaticRewards,
                     () => _apClient.HasPendingInventoryRewards, () => _hubFlowRunner.Run(34), log);
                 _connectionKeyboard.GameplayInputRead += OnRewardGameplayInput;
@@ -863,6 +866,7 @@ internal sealed partial class ArchipelagoMod : IDisposable
     {
         _rewardDiagnostics?.Dispose();
         _automaticRewards?.Dispose();
+        _partyLevelUpMonitor?.Dispose();
         _chestMonitor.ChestOpenedCompleted -= OnChestOpenedCompleted;
         _chestMonitor.Dispose();
         if (_palaceClearMonitor is not null)

@@ -173,8 +173,8 @@
       "path": "en.cpk/script/field/FSCR8000_002_000.BF",
       "patch": "024.p5apdiff",
       "original_sha256": "586c13abe622581a95812267ac68844018cad3d8c45d8a10185fd55f0ac6c7c1",
-      "modified_sha256": "f0972ff5f1299454b74df58c5fdbd8f04c69b0c39e42eedeee64daf23991cd40",
-      "patch_sha256": "0ddbc330ec192fead617d399b2cb1b62562ab240e9e7d667e5d0b6a695703159"
+      "modified_sha256": "927ff319c80bcab05b483c089368e4461830d88ab3d624f89e7e4ea9ba6f5aa0",
+      "patch_sha256": "2e6e994f844c14b63542d8636883d1673ab6fb65ed982a7f99a31fdd92dc7afb"
     }
   ]
 }
