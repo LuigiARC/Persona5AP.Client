@@ -82,7 +82,7 @@ internal unsafe sealed class MementosPathMonitor
 
         byte[] read = [0x0F, 0xB7, 0x81, 0xFE, 0x01, 0, 0];
         if (Marshal.ReadByte(entry.Function + 4) != 0xE8 ||
-            read.Where((value, index) => Marshal.ReadByte(entry.Function + 0x37 + index) != value).Any())
+            read.Where((value, index) => Marshal.ReadByte(entry.Function + 0x17 + index) != value).Any())
             throw new InvalidOperationException("Unsupported live Mementos path getter layout.");
         var getter = entry.Function + 9 + Marshal.ReadInt32(entry.Function + 5);
         _getField = hooks.CreateWrapper<GetField>(getter, out _);
