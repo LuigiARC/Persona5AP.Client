@@ -36,6 +36,9 @@ internal sealed partial class ArchipelagoMod : IDisposable
     // Read-only, save-slot-scoped guard for Bank reception script overrides.
     private const uint ActiveApBankFeatureId = 900171;
     private const uint ActiveApLaboratoryFeatureId = 900172;
+    private const uint BlockUnavailableBossFeatureIdBase = 900240;
+    private const uint BossCardUsesProgressionFeatureId = 900248;
+    private const uint BossCardItemMissingFeatureId = 900249;
     private const uint BeginAutomaticRewardsFeatureId = 900200;
     private const uint CompleteAutomaticRewardsFeatureId = 900201;
     // Encodes member * 100 + current level and returns an absolute level target. Keeping the
@@ -65,6 +68,7 @@ internal sealed partial class ArchipelagoMod : IDisposable
     private readonly SaveLoadMonitor? _saveLoadMonitor;
     private readonly HubMenuHotkey? _hubMenuHotkey = null;
     private readonly HubFlowRunner? _hubFlowRunner = null;
+    private readonly MissingCallingCardReturn? _missingCallingCardReturn = null;
     private readonly MessageWindowGuard? _messageWindowGuard = null;
     private readonly DeathLinkDamageReceiver? _deathLinkDamageReceiver = null;
     private readonly PartyHpManipulator? _partyHpManipulator = null;
@@ -161,6 +165,9 @@ internal sealed partial class ArchipelagoMod : IDisposable
         try
         {
             _hubFlowRunner = new HubFlowRunner(hooks, scanner, hubPath);
+            _missingCallingCardReturn = new MissingCallingCardReturn(GetActiveApPalace,
+                HasCallingCardAccess,
+                () => _hubFlowRunner.Run(PalaceCalendarReturnMonitor.ReturnToHubProcedureIndex), log);
         }
         catch (Exception ex)
         {
@@ -253,7 +260,8 @@ internal sealed partial class ArchipelagoMod : IDisposable
             {
                 _palaceCalendarReturnMonitor = new PalaceCalendarReturnMonitor(hooks, scanner,
                     GetActiveApPalace, palace => _bitFlags.IsSet(palace.ClearFlag),
-                    OnPalaceCleared, ClearActiveApPalace, _hubFlowRunner, log);
+                    OnPalaceCleared, ClearActiveApPalace, _hubFlowRunner, log,
+                    palace => _missingCallingCardReturn?.TryReturn(palace) == true);
             }
             catch (Exception ex)
             {
@@ -267,6 +275,7 @@ internal sealed partial class ArchipelagoMod : IDisposable
                 HasCallingCardAccess, MayReportPalaceClear, log);
             _palaceClearMonitor.PalaceCleared += OnPalaceCleared;
             _palaceClearMonitor.CallingCardSent += OnCallingCardSent;
+            _palaceClearMonitor.CallingCardBlocked += OnCallingCardBlocked;
         }
         catch (Exception ex)
         {
@@ -349,6 +358,7 @@ internal sealed partial class ArchipelagoMod : IDisposable
 
     private void OnSaveLoaded(uint fileIndex)
     {
+        _missingCallingCardReturn?.Reset();
         Interlocked.Increment(ref _saveGeneration);
         _chestMonitor.SetShopDescriptionsEnabled(false);
         Interlocked.Exchange(ref _confidantShopActive, 0);
@@ -428,7 +438,13 @@ internal sealed partial class ArchipelagoMod : IDisposable
         return _palaces.Locations.FirstOrDefault(location => location.Major == major);
     }
 
-    private void ClearActiveApPalace() => _apClient.ClearActiveApPalace();
+    private void OnCallingCardBlocked(PalaceLocation palace) => _missingCallingCardReturn?.TryReturn(palace);
+
+    private void ClearActiveApPalace()
+    {
+        _apClient.ClearActiveApPalace();
+        _missingCallingCardReturn?.Reset();
+    }
 
     private int GetCurrentMementosPath()
     {
@@ -440,6 +456,21 @@ internal sealed partial class ArchipelagoMod : IDisposable
 
     private long? SyntheticFeatureOverride(uint featureId)
     {
+        if (featureId is BossCardUsesProgressionFeatureId or BossCardItemMissingFeatureId)
+        {
+            var palace = GetActiveApPalace();
+            if (palace is null) return 0;
+            return featureId == BossCardUsesProgressionFeatureId
+                ? (_apClient.ProgressivePalaceAccess ? 1 : 0)
+                : (HasCallingCardAccess(palace) ? 0 : 1);
+        }
+        if (featureId >= BlockUnavailableBossFeatureIdBase &&
+            featureId < BlockUnavailableBossFeatureIdBase + 8)
+        {
+            return BossEntryPolicy.ShouldReturn(GetActiveApPalace(),
+                (int)(featureId - BlockUnavailableBossFeatureIdBase + 1),
+                HasCallingCardAccess, palace => _bitFlags.IsSet(palace.CallingCardFlag)) ? 1 : 0;
+        }
         if (featureId == BeginAutomaticRewardsFeatureId)
             return _automaticRewards?.TryBegin() == true ? 1 : 0;
         if (featureId == CompleteAutomaticRewardsFeatureId)
@@ -877,6 +908,7 @@ internal sealed partial class ArchipelagoMod : IDisposable
         {
             _palaceClearMonitor.PalaceCleared -= OnPalaceCleared;
             _palaceClearMonitor.CallingCardSent -= OnCallingCardSent;
+            _palaceClearMonitor.CallingCardBlocked -= OnCallingCardBlocked;
         }
         if (_confidantMonitor is not null)
         {

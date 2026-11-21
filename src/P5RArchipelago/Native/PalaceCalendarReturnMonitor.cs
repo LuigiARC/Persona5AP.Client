@@ -38,6 +38,7 @@ internal unsafe sealed class PalaceCalendarReturnMonitor
     private readonly IHook<FlowFunction> _hook;
     private readonly Func<PalaceLocation?> _activePalace;
     private readonly Func<PalaceLocation, bool> _isClear;
+    private readonly Func<PalaceLocation, bool> _returnMissingCard;
     private readonly Action<PalaceLocation> _reportClear;
     private readonly Action _clearSession;
     private readonly HubFlowRunner _hubFlow;
@@ -45,10 +46,12 @@ internal unsafe sealed class PalaceCalendarReturnMonitor
 
     public PalaceCalendarReturnMonitor(IReloadedHooks hooks, AddressScanner scanner,
         Func<PalaceLocation?> activePalace, Func<PalaceLocation, bool> isClear,
-        Action<PalaceLocation> reportClear, Action clearSession, HubFlowRunner hubFlow, Log log)
+        Action<PalaceLocation> reportClear, Action clearSession, HubFlowRunner hubFlow, Log log,
+        Func<PalaceLocation, bool> returnMissingCard)
     {
         _activePalace = activePalace;
         _isClear = isClear;
+        _returnMissingCard = returnMissingCard;
         _reportClear = reportClear;
         _clearSession = clearSession;
         _hubFlow = hubFlow;
@@ -74,7 +77,11 @@ internal unsafe sealed class PalaceCalendarReturnMonitor
     private bool CallCalendarImpl(nuint ignored)
     {
         var palace = _activePalace();
-        if (palace is null || !_isClear(palace))
+        if (palace is null)
+            return _hook.OriginalFunction(ignored);
+       if (_returnMissingCard(palace))
+            return true;
+        if (!_isClear(palace))
             return _hook.OriginalFunction(ignored);
 
         // Reporting is deliberately isolated from the field redirect. A transient AP/state

@@ -26,6 +26,7 @@ internal sealed class PalaceClearMonitor
 
     public event Action<PalaceLocation>? PalaceCleared;
     public event Action<PalaceLocation>? CallingCardSent;
+    public event Action<PalaceLocation>? CallingCardBlocked;
 
     public PalaceClearMonitor(IReloadedHooks hooks, AddressScanner scanner, PalaceCatalog catalog,
         Func<PalaceLocation, bool> maySetCallingCard,
@@ -62,7 +63,15 @@ internal sealed class PalaceClearMonitor
         if (_catalog.TryGetByCallingCardFlag(flag, out var palace) && !_maySetCallingCard(palace))
         {
             _log.Info($"Suppressed vanilla calling-card flag for '{palace.Name}'; its AP item has not been received.");
-            return 0;
+            try
+            {
+                CallingCardBlocked?.Invoke(palace);
+            }
+            catch (Exception ex)
+            {
+                _log.Error($"Could not handle the blocked calling card for '{palace.Name}': {ex.Message}");
+            }
+           return 1;
         }
 
         var result = _bitOnHook.OriginalFunction();
