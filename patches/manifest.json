@@ -266,6 +266,13 @@
       "original_sha256": "b41100603cd96091b2e2ccdf54c544611a6cec52afc3e3d4a2131cc47bf74e26",
       "modified_sha256": "19fc94af16cc90fd0e42a3fb7607d5c2c563c72e47e84251beeec817d8ac3c00",
       "patch_sha256": "570e219f80a6adde43585bf3c37113dfc4cda8806aec651b1c49411473e41fb1"
+    },
+    {
+      "path": "en.cpk/field/init/FINI_155_001.BF",
+      "patch": "038.p5apdiff",
+      "original_sha256": "602b5333e3d23bfdc8aa59b035cdebb08871a113bc610a0d1879a20bb356638f",
+      "modified_sha256": "40bf89b283b5c67828e9d639a9aa2231ab8f94a0f98ae65f393ec2ccb965128b",
+      "patch_sha256": "671c264c0ee8dd3eb243f8855d2bca2890075a112b95b68ac9c000e71f65c03d"
     }
   ]
 }
