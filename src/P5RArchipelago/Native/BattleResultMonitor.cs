@@ -1,49 +1,62 @@
 using Reloaded.Hooks.Definitions;
-using Reloaded.Hooks.Definitions.X86;
+using Reloaded.Hooks.Definitions.Enums;
+using System.Runtime.InteropServices;
+using Reloaded.Hooks.Definitions.X64;
 using IReloadedHooks = Reloaded.Hooks.ReloadedII.Interfaces.IReloadedHooks;
 
 namespace P5RArchipelago.Native;
 
-/// <summary>Observes P5R's final battle-result byte. Native result 2 is the party-defeat
-/// route (FLD_GET_BATTLE_RESULT exposes it to flow scripts as result 1).</summary>
-internal sealed unsafe class BattleResultMonitor
+internal sealed class BattleResultMonitor : IDisposable
 {
-    private const string EndBattlePattern = "40 53 55 41 57 48 81 EC 80 00 00 00";
+    internal const string DefeatPhasePattern =
+        "48 8B C4 48 89 58 20 48 89 50 10 48 89 48 08 55 56 57 41 54 41 55 41 56 41 57 48 8D A8 58 FB FF FF 48 81 EC 70 05 00 00 48 8B F2";
 
-    [Function(CallingConventions.Fastcall)]
-    private delegate ulong EndBattle(byte* battleResult);
+    [Function(CallingConventions.Microsoft)]
+    private delegate void DefeatPhase(IntPtr phase, IntPtr battle);
 
-    private readonly IHook<EndBattle> _endBattleHook;
+    private readonly IAsmHook _defeatPhaseHook;
+    private readonly IReverseWrapper<DefeatPhase> _observer;
+    private readonly Func<bool> _scriptedLoss;
     private readonly Log _log;
 
     public event Action? PartyWiped;
 
-    public BattleResultMonitor(IReloadedHooks hooks, AddressScanner scanner, Log log)
+    public BattleResultMonitor(IReloadedHooks hooks, AddressScanner scanner, Log log,
+        Func<bool> scriptedLoss)
     {
         _log = log;
-        var address = scanner.FindUnique("EndBattle", EndBattlePattern);
-        _endBattleHook = hooks.CreateHook<EndBattle>(EndBattleImpl, address).Activate();
+        _scriptedLoss = scriptedLoss;
+        var address = scanner.FindUnique("BattleDefeatPhase", DefeatPhasePattern);
+        _observer = hooks.CreateReverseWrapper<DefeatPhase>(DefeatPhaseImpl);
+        _defeatPhaseHook = hooks.CreateAsmHook(new[]
+        {
+            "use64", "push rcx", "push rdx", "sub rsp, 40",
+            $"mov rax, 0x{_observer.WrapperPointer:X}", "call rax",
+            "add rsp, 40", "pop rdx", "pop rcx"
+        }, address.ToInt64(), AsmHookBehaviour.ExecuteFirst).Activate();
     }
 
-    private ulong EndBattleImpl(byte* battleResult)
+    private void DefeatPhaseImpl(IntPtr phase, IntPtr battle)
     {
-        var result = battleResult is null ? byte.MaxValue : *battleResult;
-        var originalResult = _endBattleHook.OriginalFunction(battleResult);
-        _log.Info($"Battle ended with native result {result}.");
-
-        if (result == 2)
+        try
         {
-            try
+            //flag 0x3000011C for party annihilation
+            if (battle != IntPtr.Zero &&
+                (Marshal.ReadInt32(battle, 0x268) & 0x01000000) == 0 && !_scriptedLoss())
             {
+                _log.Info("Battle defeat reporting DeathLink.");
                 PartyWiped?.Invoke();
             }
-            catch (Exception ex)
+            else
             {
-                // DeathLink must never interfere with P5R's own battle teardown.
-                _log.Error($"Party-wipe DeathLink handler failed safely: {ex.Message}");
+                _log.Info("Battle defeat but skipped scripted loss.");
             }
         }
-
-        return originalResult;
+        catch (Exception ex)
+        {
+            _log.Error($"DeathLink handler failed: {ex.Message}");
+        }
     }
+
+    public void Dispose() => _defeatPhaseHook.Disable();
 }

@@ -246,7 +246,8 @@ internal sealed partial class ArchipelagoMod : IDisposable
 
         try
         {
-            _battleResultMonitor = new BattleResultMonitor(hooks, scanner, log);
+            _battleResultMonitor = new BattleResultMonitor(hooks, scanner, log,
+                () => _bitFlags.IsSet(0x3000011C));
             _battleResultMonitor.PartyWiped += SendCurrentConnectionDeathLink;
         }
         catch (Exception ex)
@@ -919,7 +920,10 @@ internal sealed partial class ArchipelagoMod : IDisposable
         if (_saveLoadMonitor is not null)
             _saveLoadMonitor.SaveLoaded -= OnSaveLoaded;
         if (_battleResultMonitor is not null)
+        {
             _battleResultMonitor.PartyWiped -= SendCurrentConnectionDeathLink;
+            _battleResultMonitor.Dispose();
+        }
         _deathLinkDamageReceiver?.Dispose();
         _partyHpManipulator?.Dispose();
         _hubMenuHotkey?.Dispose();

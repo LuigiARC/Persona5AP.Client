@@ -189,7 +189,11 @@ internal sealed class ApClient : IDisposable
 
     public void SendDeathLinkForPartyWipe()
     {
-        if (!ConnectionReady || !_deathLinkEnabled) return;
+        if (!ConnectionReady || !_deathLinkEnabled)
+        {
+            _log.Info($"Party wipe detected; DeathLink not sent (connectionReady={ConnectionReady}, enabled={_deathLinkEnabled}).");
+            return;
+        }
         try
         {
             var source = string.IsNullOrWhiteSpace(_config.SlotName) ? "Joker" : _config.SlotName;

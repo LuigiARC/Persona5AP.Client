@@ -8,6 +8,7 @@ from pathlib import Path
 
 
 PATTERNS = {
+    "BattleDefeatPhase": "48 8B C4 48 89 58 20 48 89 50 10 48 89 48 08 55 56 57 41 54 41 55 41 56 41 57 48 8D A8 58 FB FF FF 48 81 EC 70 05 00 00 48 8B F2",
     "MessageWindowBlocked": "48 83 EC 28 48 83 79 70 00 75 42 48 8D 05 ?? ?? ?? ?? 48 8D 15 ?? ?? ?? ?? 0F 1F 80 00 00 00 00",
     "DrawPlainText": "48 83 EC 68 83 3D 21 85 3A 01 01 0F 28 D8 F3 0F 10 05",
     "DrawItemHelp": "48 8B C4 48 81 EC 98 00 00 00 66 0F 6F 1D EE 2A AB 00 45 8B D1",
